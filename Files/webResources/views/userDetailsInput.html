@@ -1,0 +1,35 @@
+<div class="form-group" ng-class="{'has-error' : pageControls.userError}">
+      <label for="inputUserName" class="col-lg-2 control-label">User Name</label>
+      <div class="col-lg-10">
+	<input ng-model="personDetails.userName" type="text" class="form-control" id="inputUserName" placeholder="User Name"
+		  name="inputUserName" ng-disabled="pageControls.disableUserName">
+      </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : pageControls.passwordError}">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+	<input ng-model="personDetails.password" type="password" class="form-control" id="inputPassword" placeholder="Password"
+		  name="inputPassword">
+      </div>
+    </div>
+    <div class="form-group" ng-if="registerMode" ng-class="{'has-error' : pageControls.passwordValidateError}">
+      <label for="inputPasswordValidate" class="col-lg-2 control-label">Confirm</label>
+      <div class="col-lg-10">
+	<input ng-model="personDetails.passwordValidate" type="password" class="form-control" id="inputPasswordValidate" 
+		placeholder="Password"   name="inputPasswordValidate">
+      </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error' : pageControls.emailError}" ng-if="registerMode">
+      <label for="inputEmail" class="col-lg-2 control-label">Email Address</label>
+      <div class="col-lg-10">
+	<input ng-model="personDetails.email" type="text" class="form-control" id="inputEmail" placeholder="Email"
+		  name="inputEmail">
+      </div>
+    </div>
+    <div class="form-group" ng-if="registerMode" ng-class="{'has-error' : pageControls.nameError}">
+      <label for="inputFName" class="col-lg-2 control-label">Your Name</label>
+      <div class="col-lg-10">
+	<input ng-model="personDetails.fName" type="text" class="form-control" id="inputFName" placeholder="Name"
+		name="inputFName">
+      </div>
+    </div>

@@ -1,0 +1,168 @@
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src="static/ng-table.js"></script>	
+	<script src="static/ui-bootstrap-tpls-0.13.0.js"></script>
+	<script src="static/app.js"></script>
+	<script src="static/infoService.js"></script>
+	<script src="static/indexCtrl.js"></script>
+	<script src="static/customToolTipPops.js"></script>  
+<!--	<link rel="stylesheet" href="static/font-awesome.min.css">  -->
+	<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/bootstrap.min.css">
+	<link rel="stylesheet" href="static/styleSheet.css">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body ng-app="MainPageApp" ng-cloak id="theBody" style="padding-bottom:250px;">
+<div ng-controller="MainPageController" ng-init="pageLoad()">
+ <script type="text/ng-template" id="ng-table/filters/completed.html">
+	<input class="radioHeader" type="radio" ng-model="params.filter()[name]" name="filter-completed" value="" /> All
+	<br/>
+	<input class="radioHeader" type="radio" ng-model="params.filter()[name]" name="filter-completed" value="true" /> Completed
+	<br/>
+	<input class="radioHeader" type="radio" ng-model="params.filter()[name]" name="filter-completed" value="false" /> Incomplete
+</script>
+<script type="text/ng-template" id="listManagerModal.html">
+	<div class="modal-header">
+	    <h3 class="modal-title">Edit Lists</h3>
+	</div>
+	<div class="modal-body">
+	    <ul>
+		<li ng-repeat="item in lists">
+		    <span>
+			{{item.name}}
+
+			<button class="btn btn-xs btn-warning fa fa-edit" ng-click="editListName(item)"
+				ng-if="item.role == 'owner' || item.role == 'edit'" tooltip="Edit list name"  
+				tooltip-trigger="mouseenter"tooltip-placement="right"></button>
+			<button class="btn btn-xs btn-danger fa fa-times" ng-if="item.owner == loggedInEmail.text"
+				ng-click="deleteList(item)" tooltip="Remove list (and all the tasks assigned to that list)"  
+				tooltip-trigger="mouseenter"	tooltip-placement="right"></button>
+			<button class="btn btn-xs btn-danger fa fa-minus" ng-if="item.owner != loggedInEmail.text"
+				ng-click="deleteList(item)" tooltip="Stop this list from being shared with you"  
+				tooltip-trigger="mouseenter"	tooltip-placement="right"></button>
+		    </span> 
+		</li>
+	    </ul>
+	</div>
+	<div class="modal-footer">
+	    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+	    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+	</div>
+</script>
+<script type="text/ng-template" id="editShareModal.html">
+	<div class="modal-header">
+	    <h3 class="modal-title">Edit Sharing Permissions</h3>
+	</div>
+	<div class="modal-body">
+	    <ul>
+		<li ng-repeat="item in shares">
+		    <span>
+			{{item.email}}
+			<select data-ng-model="item.role" data-ng-options="option for option in ['view','edit']">
+			</select>
+			<button class="btn btn-xs btn-danger fa fa-times" ng-click="deleteShare(item)"></button>
+		    </span> 
+		</li>
+	    </ul>
+		<input ng-model="addInput" type="text" placeHolder="Add new" 
+			typeahead="email for email in possibleSharees | filter:$viewValue | limitTo:8">
+		</input>
+		<button class="btn btn-xs btn-success fa fa-plus" ng-click="addShare()"></button>
+	</div>
+	<div class="modal-footer">
+	    <span>
+		<div ng-repeat="alert in alerts" class="alert alert-dismissible alert-{{ alert.type }}">
+			<center>{{ alert.message }}</center>
+		</div>
+	    </span>
+	    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+	    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+	</div>
+</script>
+
+	<!-- Main bar -->
+	<div ng-include="'/static/navBar.html'"></div>
+	<!-- Task portion -->
+<!--	<div class="container"> -->
+	<!--	<div class="row">
+			
+	<!-- List's tasks -->
+			<div class="col-xs-12" ng-show="pageControls.showMainHelpMessage">
+				<h4><center>
+					No List selected. Click the 'lists' drop down in the menu to load a list 
+					or create a new list.
+				</center></h4>
+			</div>
+
+
+<!-- HERE -->
+			<div class="col-xs-12" ng-show="loadedList.id >= 0">
+				<div><center><h4>List: {{ loadedList.name }}</h4></center></div>
+
+				<div> 
+					Shared with: <span tooltip-placement="bottom" tooltip="owner" class="bold"
+							ng-if="loadedList.owner != loggedInDetails.email">
+								{{ loadedList.owner }},
+						     </span>
+						     <span ng-repeat="shared in loadedList.sharedWith"> 
+							<span tooltip-placement="bottom" tooltip="{{shared.role}}">
+								{{ shared.email }}
+							</span>
+								<span ng-if="$index < loadedList.sharedWith.length-1">,</span>
+						     </span>
+
+					<button ng-if="loadedList.role == 'owner'" ng-click="editShare()" class="btn btn-xs btn-success fa fa-plus">
+					</button>
+					<button style="float:right" ng-click="refresh()" class="btn btn-success fa fa-refresh"></button>
+				</div>
+				<div>
+					<span ng-if="false">
+					<input type='radio' ng-model="radioButtons.selected" value="showAll"> All</input>
+					<input type='radio' ng-model="radioButtons.selected" value="completed"> Completed</input>
+					<input type='radio' ng-model="radioButtons.selected" value="notcompleted"> Incomplete</input>
+					</span>
+				</div>
+				<table ng-table="tableParams" show-filter="false" class="table" id="theTable">
+				   <tr ng-repeat="task in $data track by task.id">
+					<td class="col-xs-1" data-title="'Completed'" sortable="'status'" filter="{ 'status': 'completed' }">
+						<input type="checkbox" name="{{ task.name }}" style="margin-right: 15px" value="{{ task.name }}"
+						ng-model="checkBoxes[task.id]" ng-click="checkBoxSelected(task.id, task.name)"
+						ng-disabled="!pageControls.markCompleteEdit">
+					    	</input>
+					</td>
+					<td class="col-xs-10" data-title="'Task'" sortable="'name'" filter="{ 'name': 'text' }">
+						<span ng-class="{ 'strikeTask': checkBoxes[task.id], 
+									'Normal': checkBoxes[task.id] }"> 
+								{{task.name}} 
+						</span>
+					</td>
+					<td class="col-xs-1" data-title="'Actions'">
+						<button class="btn btn-xs btn-warning fa fa-edit" ng-click="editTask(task.id)"
+							ng-if="pageControls.showEditTask"></button>
+						<button class="btn btn-xs btn-danger fa fa-times" ng-click="removeTask(task.id)"
+							ng-if="pageControls.showDeleteTask"></button>
+					</td>	   
+				    </tr>
+				</table>
+				<input type="text" ng-model="addedTaskInput.text" ng-blur="addTask(addedTaskInput.text)"
+						ng-focus="showAddTaskPopOver()" 
+						placeholder="Enter new task" ng-if="pageControls.showAddTask"
+						style="width:50%" 
+						ng-keyup="addTaskInputListener($event,addedTaskInput.text)"
+						tooltip-trigger="focus"
+						tooltip="Click out of the box to save or press the enter key"
+						tooltip-placement="right"> 
+<!--tooltip="{{(pageControls.showTaskPop) ? 'Click out of the box to save or press the enter key' : ''}}"-->
+				</input>
+				<button class="btn btn-xs btn-danger fa fa-times" ng-click="deleteAll()" style="float:right; margin-top:10px;">
+					Delete All Completed
+				</button>
+			</div>
+<!-- HERE -- >
+<!--		</div>
+	</div> -->
+</div>
+</body>

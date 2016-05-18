@@ -1,0 +1,139 @@
+<head>
+
+        <style>
+            .my-drop-zone { border: dotted 3px lightgray; }
+            .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+            .another-file-over-class { border: dotted 3px green; }
+
+            html, body { height: 100%; }
+        </style>
+
+</head>
+<body>
+<!--<button ng-click="temp()">show file details</button>-->
+<uib-alert class="myfade" id="header-floater" ng-if="alertMessage != ''" type="danger"><center><b>{{alertMessage}}</b></center></uib-alert>
+<div id="container" class="container" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter" style="position:relative;">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+
+                    <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                    
+                    <input type="file" nv-file-select="" uploader="uploader" multiple  /><br/>
+
+                   <!-- Single
+                    <input type="file" nv-file-select="" uploader="uploader" />-->
+                </div>
+
+                <div class="col-md-11" style="margin-bottom: 40px">
+
+                    <h3>Upload queue</h3>
+                    <p>Queue length: {{ uploader.queue.length }}</p>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th width=30%">Name</th>
+                                <th ng-show="uploader.isHTML5">Size</th>
+                                <th ng-show="uploader.isHTML5">Progress</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+				<th width=40%">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in uploader.queue track by $index">
+                                <td><strong>{{ item.file.name | limitTo: 30 }}{{item.file.name.length > 30 ? '...' : ''}}</strong></td>
+                                <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                <td ng-show="uploader.isHTML5">
+                                    <div class="progress" style="margin-bottom: 0;">
+                                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <span ng-show="item.isSuccess"><i class="fa fa-ok"></i></span>
+                                    <span ng-show="item.isCancel"><i class="fa fa-ban"></i></span>
+                                    <span ng-show="item.isError"><i class="fa fa-remove"></i></span>
+                                </td>
+                                <td nowrap>
+                                    <button type="button" class="btn btn-success btn-xs" ng-click="uploadItem(item)" ng-disabled="item.isReady || item.isUploading || item.isSuccess ||  !copyRightCheck.value">
+                                        <span class="fa fa-upload"></span> Upload
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                        <span class="fa fa-ban-circle"></span> Cancel
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs" ng-click="removeItem(item, 'true')">
+                                        <span class="fa fa-trash"></span> Remove
+                                    </button>
+                                </td>
+				<td style="min-width: 140px;">
+				   <form class="form-horizontal">
+				     <fieldset>
+
+				       <div class="form-group">
+				         <!--<label for="nameOfEvent" class="col-lg-5 control-label">Name of Event</label>-->
+				         <div class="col-lg-12">
+				   	   <input ng-model="fileDetails[$index].name" type="text" class="form-control" id="nameOfEvent" placeholder="Name of Event"
+						required="true" name="nameOfEvent">
+				         </div>
+					 <!--<label for="description" class="col-lg-5 control-label">Description</label>-->
+				         <div class="col-lg-12">
+				   	   <input ng-model="fileDetails[$index].description" type="text" class="form-control" id="description" placeholder="Description"
+						required="true" name="description">
+				         </div>
+					 <!--<label for="date" class="col-lg-2 control-label">Date</label>-->
+				        <div class="col-xs-12">
+					<p class="input-group">
+				        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="fileDetails[$index].date" is-open="dateRows[$index].datePickerOpen" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" required="true" disabled="true" placeholder="Date"/>
+				           <span class="input-group-btn">
+				  	      <button type="button" class="btn btn-default" ng-click="dateRows[$index].datePickerOpen = !dateRows[$index].datePickerOpen"><i class="fa fa-calendar"></i></button>
+				           </span>
+				        </p>
+					</div>
+					 <!--<label for="location" class="col-lg-2 control-label">Location</label>-->
+				         <div class="col-lg-12">
+				   	   <input ng-model="fileDetails[$index].location" type="text" class="form-control" id="location" placeholder="Location"
+						required="true" name="location">
+				         </div>
+					 <!--<label for="privacy" class="col-lg-2 control-label">Privacy Settings</label>-->
+				         <div class="col-lg-12">
+				   	    <input type="radio" ng-model="fileDetails[$index].privacy" value="private">Private (only you will be able to see this)</input><br/>
+					    <input type="radio" ng-model="fileDetails[$index].privacy" value="public">Public (anyone will be able to see this)</input>
+				         </div>
+				       </div>
+				     </fieldset>
+				   </form>
+				</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <div>
+                            Queue progress:
+                            <div class="progress" style="">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success btn-s" ng-click="uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length || !copyRightCheck.value">
+                            <span class="fa fa-upload"></span> Upload all
+                        </button>
+                        <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                            <span class="fa fa-ban"></span> Cancel all
+                        </button>
+                        <button type="button" class="btn btn-danger btn-s" ng-click="clearQueue()" ng-disabled="!uploader.queue.length">
+                            <span class="fa fa-trash"></span> Remove all
+                        </button>
+                    </div>
+		    <div>
+			<input type="checkbox" ng-model="copyRightCheck.value">I confirm that I possess the rights to the file uploaded, or have the permission of the rights owner to upload to the file.</input>
+		    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+</body>

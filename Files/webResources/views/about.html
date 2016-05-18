@@ -1,0 +1,115 @@
+<h2>About Island Ark Project</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <center>
+                    <img alt="Picture" src="static/uploads/4/2/4/7/42473969/1585331.png?215" style="width:215;max-width:100%">
+                </center>
+            </div>
+            <div class="col-xs-6 paragraph">
+                The Island Ark Project is a digital platform for preserving and continuing intangible cultural practices as an increasing
+                number of island communities are forced to migrate because of climate change-­related destruction. The initiative is based
+                on research done by its founders while interning at Harvard University's Berkman Center for Internet & Society in the
+                summer of 2015.
+            </div>
+        </div>
+        <div class="row">
+            <div class="paragraph" style="text-align:left;">
+                <font size="6">"Our mission is to support climate change migrants in curating their culture and continuing traditions and
+                community."</font>
+            </div>
+        </div>
+	<br>
+        <br>
+        <div class="row">
+            <div>
+                <h4>The Challenge</h4>
+                <hr>
+                Climate change is threatening the world's island nations. From salt water intrusion into fresh water sources to
+                increasingly powerful bad-weather events such as storms and droughts, these challenges will play an increasingly
+                destructive role for many islands around the world. When islanders migrate in search of better living conditions, they risk
+                losing thousands of years worth of lived cultural practices. This includes "intangible cultural heritage" such as dances,
+                songs, recipes, oral histories, traditional craft knowledge, rituals, and so forth, as well as the cultural context and
+                meaning behind all of these practices.
+            </div>
+        </div>
+	<br>
+        <div class="row">
+            <div>
+                <h4>The Solution</h4>
+                <hr>
+                <p>In response to these problems, the Island Ark Project team is in the process of developing an online platform for
+                cultural heritage protection. This web platform will function as a repository where cultural practices collected by local
+                islanders can be safeguarded for current islanders and future generations. The digital nature of the platform will enable
+                communities to continue to access information about immaterial heritage even if individual members lose their physical
+                connection to the community.</p>
+                <p>Furthermore, the network of cultural entries on the web platform will be more than a simple documentation effort.
+                Instead, families and communities will be able to discuss and contextualize their cultural practices on a secure and
+                accessible site, which will keep culture “alive” as users explore and evaluate shared cultural practices together. This
+                interaction will be guaranteed by a sophisticated and user­friendly system of permissions designed to protect the
+                intellectual property of users; moreover, a safeguarding mechanism will be built into the platform so that only authorized
+                users will be able to access “secret” or private community practices. Naturally, the final platform will be able to host
+                many different types of media, including pictures, videos, text, and audio files.</p>
+                <p>We are especially interested in recognizing and encouraging the diversity of intangible heritage. Specific traditional
+                rituals may differ between families, municipalities, and islands, and there is not one “correct” way of conducting a ritual
+                or preparing a meal. Our innovative platform will allow for the kind of bottom-­up, democratized knowledge creation and
+                curation that is necessary to replicate the multiplicity of immaterial cultural practices in a country.</p>
+                <p>Another important aspect of online cultural preservation centers on harnessing the skills of the younger generation. Our
+                project will support inter-generational collaboration between technically­skilled youth and older generations in order to
+                make traditional knowledge about intangible cultural practices available for all members of the community. Furthermore,
+                since education and technical literacy are vital to the success of the project, we are developing programs to improve
+                technical skills in rural or less-­connected areas. These trainings and workshops on basic computer and Internet skills
+                will be provided to island communities starting in early 2016.</p>
+            </div>
+        </div>
+	<br>
+        <div class="row">
+            <div>
+                <h4>Partnerships</h4>
+                <hr>
+                In September 2015 the Island Ark Project was fortunate to partner with the UNESCO Delegation to Palau, and in November 2015
+                the team presented about the project to many SIDS delegations and national commissions during the 38th session of the
+                UNESCO General Conference. The Island Ark Project team will be traveling to Palau in March 2016 in order to test the beta
+                version of the web platform and to observe the reactions of individuals and communities. Additional case studies will be
+                conducted in 3 to 4 SIDS during the second half of 2016, with the goal of testing the success of our platform in a variety
+                of islands with different developmental and technical limitations.
+            </div>
+        </div>
+	<br>
+        <div class="row">
+            <center>
+                <img src="static/uploads/4/2/4/7/42473969/teamWPalau.jpg" style="width:70%; height:auto;">
+            </center>
+        </div><!--    <div class="row">
+        <h4> Why we care: </h4>
+        <div class="col-xs-10">
+        Because of climate change, rising sea levels endanger several Small Island Developing States (SIDS) along with their traditions, genealogies, communities, histories, and artifacts which have existed for millennia.<br /><br />&#8203;To preserve these artifacts, we are conducting needs assessment research in partnership with the Delegation of Palau to UNESCO. Our goal is to pilot a platform that will allow islanders and researchers to collect cultural artifacts, safeguard community online despite geographic limitations, and communicate the dangers of climate change to all the world.
+        </div>
+        <div class="col-xs-2">
+            <img src="static/uploads/4/2/4/7/42473969/1585331.png?215" alt="Picture" style="width:115;max-width:100%" />
+        </div>
+    </div>
+    -->
+        <br>
+	<br>
+        <div class="row">
+            <h4>The Team</h4>
+            <hr>
+            <div class="container">
+		    <div class="row">
+		        <div ng-repeat="person in persons track by $index">
+				<div class="row">
+					<div ng-class="{'col-xs-4' : smallScreen, 'col-xs-2' : !smallScreen}">
+						<img src="{{ person.thumb }}" width="100%" height="auto"></img>
+					</div>
+					<div ng-class="{'col-xs-8' : smallScreen, 'col-xs-10' : !smallScreen}">
+						<strong>{{ person.name }}</strong> {{ person.bio }}
+					</div>
+				</div>
+				<br>
+			</div>
+		    </div>
+		    <br>
+            </div>
+        </div>
+    </div>

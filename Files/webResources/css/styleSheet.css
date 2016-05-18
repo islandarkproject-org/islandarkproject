@@ -1,0 +1,227 @@
+html,body{
+    height: 100%
+}
+
+.myFooter
+{
+	height: 75px;
+	background:#c2d6d6;
+}
+
+#notifications
+{
+	position:fixed;
+	width:100%;
+	top:0px;
+	text-align:center;
+	font-size:24px;	
+	background-color:gray;
+	color:white;
+}
+
+.strikeTask
+{
+	text-decoration: line-through;
+}
+
+.Normal
+{
+
+}
+
+.radioHeader
+{
+	font-size: small;
+	font-weight:normal;
+}
+.bold
+{
+	font-weight: bold;
+}
+.categoryButton
+{
+	display:block;
+	float:left;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 20px 0px 0px 0px;
+	border-color: gray;
+	background-color:#6699ff;
+	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+	width:100%;
+	height:50px;
+	margin-left:15px;
+	text-align:center;
+	cursor:pointer;
+	line-height: 30px;
+	font-family:times;
+	color:white;
+	padding-left:20px;
+	padding-right:20px;
+}
+.categoryButton:hover
+{
+	color:black;
+}
+.categoryButton:active
+{
+
+}
+
+.categoryButton-active
+{
+	background-color:#80ff80;
+}
+
+.whiteText
+{
+	color:white;
+}
+
+.blackText
+{
+	color:blue;
+}
+
+
+.navbar-nav>li>a:hover, .navbar-nav>li>a:focus
+{
+	color:white!important;
+}
+
+#imageContainer
+{
+    height:80%;
+    width:100%;
+    position:relative;
+}
+
+#image
+{    
+    position:absolute;
+    left:0;
+    top:0;
+}
+#homeOnBckImgText
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    top:50%;
+	left:41%;
+	border-style:solid;
+	border-width:medium;
+	border-color:white;
+	border-radius:10px;
+	-moz-border-radius: 10px;
+	padding: 20px;
+}
+
+.itemsContainer {
+     
+   /* float:left;*/
+cursor:pointer;
+    position:relative;
+	display:inline-block;  
+	width:250px; 
+	height:280px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 20px 0px 0px 0px;
+    background:#DDD;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+	vertical-align:middle;
+	margin: 10px;
+	box-shadow: 5px 5px 5px #A9A9A9;
+}
+.itemsContainer:hover
+{
+	box-shadow: 5px 5px #A9A9A9;
+}
+.itemsContainer:active
+{
+	box-shadow: 0px 0px;
+	margin-left:20px;
+	margin-top:2px;
+}
+.col-centered{
+float: none;
+margin: 0 auto;
+}
+/*.itemsContainer:hover .filePopover{display:block, background:red;}
+.filePopover{
+  position : absolute;
+    display:block;
+    top:0%; 
+    width:40px;
+    margin:0 auto; 
+	left:70%;
+    right:100%;
+    z-index:100;
+	cursor:pointer;
+} */
+
+#header-floater {
+    background: #eeeeff;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    z-index: 1;
+}
+#container{ 
+    margin-top: 50px;
+}
+
+.myfade.ng-leave.ng-leave-active {
+  transition:1.0s linear all;
+  opacity:0;
+}
+.myfade.ng-leave {
+  transition:1.0s linear all;
+  opacity:1;
+}
+/* The starting CSS styles for the enter animation */ 
+.myfade.ng-enter {
+  transition:1.0s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */ 
+.myfade.ng-enter.ng-enter-active {
+  transition:1.0s linear all;
+  opacity:1;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: /*whatever width you want*/;
+}
+
+/* .navbar-default .navbar-nav > li > a, 
+ .navbar-default .navbar-nav > .active > a:hover, 
+ .navbar-default .navbar-nav > .active > a:focus,
+ .navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+     
+      background: transparent;
+		color:white!important;
+ }*/

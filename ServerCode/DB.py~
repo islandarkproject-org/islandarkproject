@@ -1,0 +1,72 @@
+import MySQLdb
+import json
+import hashlib
+import uuid
+import time
+import calendar
+from User import User
+
+class DB:
+    def __init__(self):
+        self.conn = MySQLdb.connect(host="localhost", user="islandark", passwd="google4113", db=DB.getDBName())
+        self.cur = self.conn.cursor()
+
+    @staticmethod
+    def testConnection():
+        db = DB()
+        db.cur.execute("Select * FROM privacy_options")
+        temp = []
+        for row in db.cur:
+            temp.append(row.__dict__)
+	return temp
+
+    @staticmethod
+    def login(userNameIn, passWord):
+        db = DB()
+        db.cur.execute("""Select * FROM Users WHERE userName = %s""", (userNameIn,))
+        dbResult = db.cur.fetchone()
+	if(dbResult == None):
+		return False
+	user = User(dbResult)
+        return str(hashlib.sha256(passWord + user.salt).hexdigest()) == user.passWord
+
+    @staticmethod
+    def register(userName, passWord, email, fName):
+        #check if user already exists
+        db = DB()
+        salt = str(uuid.uuid4())
+        password = str(hashlib.sha256(passWord + salt).hexdigest())
+        db.cur.execute("""Insert into Users (userName,pass,salt,email,name) VALUES (%s,%s,%s,%s,%s)""", (userName,password,salt,email,fName))
+	db.db.commit()	
+	return db.cur.lastrowid
+
+    @staticmethod
+    def saveFile(userName, fileName, filePath, name, date, description, location,privacy):
+	db = DB()
+	hashValue = str(hashlib.sha256(fileName + userName + description + location + str(calendar.timegm(time.gmtime()))).hexdigest())
+	sqlFile = """INSERT INTO Files (ownerName, fileName, filePath, privacyOption, hashValue) VALUES (%s,%s,%s,%s,%s)"""
+	db.cur.execute(sqlFile, (userName, fileName, filePath, privacy, hashValue))
+	db.conn.commit()
+	return "true"
+
+    @staticmethod
+    def getAllResults(SQL):
+        db = DB()
+        db.cur.execute(SQL)
+        return db.cur.fetchall()
+        
+    @staticmethod
+    def getOneResult(SQL):
+        db = DB()
+        db.cur.execute(SQL)
+        return db.cur.fetchone()
+    
+    @staticmethod    
+    def execute(SQL):
+        db = DB()
+        db.cur.execute(SQL)
+        db.conn.commit()
+
+    @staticmethod
+    def getDBName():
+        return "islandArkMain"#app.config["DB"]

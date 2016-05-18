@@ -1,0 +1,137 @@
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.18/angular.min.js"></script>
+	<script src="//code.angularjs.org/1.3.14/angular-cookies.min.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.18/angular-animate.js"></script>
+	<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+	<script src="static/js/ui-bootstrap-tpls-0.14.3.js"></script>
+	<script src="static/js/ng-table.js"></script>
+	<script src="static/js/app.js"></script>
+	<script src="static/js/infoService.js"></script>
+
+	<script src="static/js/partial-homeCtr.js"></script>
+	<script src="static/js/loginCtrl.js"></script>
+	<script src="static/js/modelService.js"></script>
+	<script src="static/js/aboutCtrl.js"></script>
+	<script src="static/js/dashboardCtrl.js"></script>
+	<script src="static/js/mainCtrl.js"></script>
+	<script src="static/js/angular-file-upload.js"></script>
+	<script src="static/js/uploaderCtrl.js"></script>
+	<script src="static/js/viewContent.js"></script>
+	<script src="static/js/viewPictureCtrl.js"></script>
+	<script src="static/js/userProfileCtrl.js"></script>
+
+
+	<!--<link rel="stylesheet" href="static/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/navbar.css">
+	<link rel="stylesheet" href="static/css/styleSheet.css">
+	<script>{% if session['value'] %} var loggedIn = true; var user = '{{ session['value'] }}' ;{% else %} var loggedIn = false; var user = "";{% endif %}</script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-61937245-4', 'auto');
+	  //ga('send', 'pageview', location.pathname);
+
+	</script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body ng-app="myApp">
+	<div ng-controller="mainCtrl" ng-init="onLoad()">
+		<!-- NAVIGATION -->
+
+<!--		<div id='cssmenu'>
+		<ul>
+		   <li ng-class='{active:activeTab=="/"}'><a ui-sref="home">Home</a></li>
+		   <li ng-class='{active:activeTab=="/dashboard"}'><a ui-sref="dashboard"> Upload and View</a></li>
+		   <li ng-class='{active:activeTab=="/logIn"}' ng-show="!authenticated"><a ui-sref="logIn">Log in</a></li>
+		   <li ng-show="authenticated"><a ui-sref="logOut">Log out</a></li>
+		</ul>
+		</div>
+		<br/>
+-->
+
+
+		<nav class="navbar navbar-default" ng-class="{'navbar-fixed-top': $state.is('home')}" role="navigation">
+			<div class="navbar-header">
+				<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle" > 
+					<span class="sr-only">Toggle navigation</span>
+				  	<span class="icon-bar" ng-style="{'background-color': $state.includes('home') ? 'white' : '#1ab2ff'}"></span>
+				  	<span class="icon-bar" ng-style="{'background-color': $state.includes('home') ? 'white' : '#1ab2ff'}"></span>
+				  	<span class="icon-bar" ng-style="{'background-color': $state.includes('home') ? 'white' : '#1ab2ff'}"></span>
+
+				</button>
+					<a class="navbar-brand" ui-sref="home" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Island Ark Project</a>
+			</div>
+			<div id="navbarCollapse" class="collapse navbar-collapse">				
+			    <ul class="nav navbar-nav">
+				<li><a ui-sref="home" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Home</a></li>
+				<li><a ui-sref="uploader" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> Upload New Content</a></li>
+				<li><a ui-sref="viewContent" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> View Uploaded Content</a></li>
+			   </ul>
+			   <ul class="nav navbar-nav navbar-right">
+				<li><a ui-sref="userProfile" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> 
+					{%raw%}Welcome {{ userName }}{%endraw%}
+				    </a>
+				</li>
+				<li ng-show="!authenticated"><a ui-sref="logIn" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Log in</a></li>
+				<li ng-show="authenticated"><a ui-sref="logOut" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Log out</a></li>
+			    </ul>
+			</div>
+		</nav>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+		<nav class="navbar navbar-default" ng-class="{'navbar-fixed-top': $state.is('home')}" role="navigation">
+		    <div class="navbar-header">
+			<a class="navbar-brand" ui-sref="home" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Island Ark Project</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+			<li><a ui-sref="home" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Home</a></li>
+			<li><a ui-sref="uploader" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> Upload new Content</a></li>
+			<li><a ui-sref="viewContent" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> View Content</a></li>
+		   </ul>
+		   <ul class="nav navbar-nav navbar-right">
+			<li><a ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> Welcome {{ userName }}</a></li>
+			<li ng-show="!authenticated"><a ui-sref="logIn" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Log in</a></li>
+			<li ng-show="authenticated"><a ui-sref="logOut" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Log out</a></li>
+		    </ul>
+		</nav>-->
+	<!--	<div id="notifications" >
+			notify
+		</div>
+
+	-->
+		
+		<div ng-class="{container: !$state.is('home')}" style="min-height: 100%;">
+			<div ui-view></div>
+		</div>
+		<footer class="myFooter footer">
+		    <ul class="nav navbar-nav">
+			<li><a ui-sref="home">Home</a></li>
+			<li><a ui-sref="uploader"> Upload new Content</a></li>
+			<li><a ui-sref="viewContent"> View Content</a></li>
+			<li><a ui-sref="about">About</a></li>
+			<li><a ui-sref="contact">Contact</a></li>
+			<li ng-show="!authenticated"><a ui-sref="logIn">Log in</a></li>
+			<li ng-show="authenticated"><a ui-sref="logOut">Log out</a></li>
+		    </ul>
+		</footer>
+	</div>
+</body>
+

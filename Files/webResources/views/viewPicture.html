@@ -1,0 +1,53 @@
+<div>
+<center>
+	<div class="row">
+	<img src="{{pic.url}}" width="auto" height="65%"></img>
+	</div>
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3">
+		<!--<table style="width:50%">
+			<tr>
+				<td><strong>Event Name:</strong></td>
+				<td>{{ pic.title }} </td>
+			<tr>
+			<tr>
+				<td><strong>Event Date:</strong></td>
+				<td>{{ pic.eventDate | date:'dd-MMM-yyyy' }} </td>
+			<tr>
+			<tr>
+				<td><strong>Event Location:</strong></td>
+				<td>{{ pic.location }} </td>
+			<tr>
+			<tr>
+				<td><strong>Uploaded By:</strong></td>
+				<td>{{ pic.owner }} </td>
+			<tr>
+			<tr>
+				<td><strong>Description:</strong></td>
+				<td>{{ pic.description }} </td>
+			<tr>
+			<tr>
+				<td><strong>Uploaded Date:</strong></td>
+				<td>{{ pic.uploadedDate | date:'dd-MMM-yyyy' }} </td>
+			<tr>
+			<tr>
+				<td><strong>Privacy Setting:</strong></td>
+				<td>{{ pic.privacy }} </td>
+			<tr>
+
+		</table>-->
+		<strong>Event Name:</strong> {{ pic.title }} <br/>
+		<strong>Event Date:</strong> {{ pic.eventDate | date:'dd-MMM-yyyy' }} <br/>
+		<strong>Location:</strong> {{ pic.location }} </br>
+		<strong>Uploaded by:</strong> {{ pic.owner }} </br>
+		<strong>Description:</strong> {{ pic.description }} </br>
+		<strong>Uploaded on:</strong> {{ pic.uploadedDate | date:'dd-MMM-yyyy' }} </br>
+		<strong>Privacy Setting:</strong> {{ pic.privacy }} </br>		
+		</div>
+		<div class="col-xs-4" style="cursor:pointer" ng-if="getLoggedInUser() == pic.owner">
+			<a class="fa fa-trash" ng-click="deletePic(pic.url)">Delete this picture</a>
+			<!--<a class="fa fa-edit">Edit details</a>-->
+		</div>
+	</div>
+</center>
+</div>
