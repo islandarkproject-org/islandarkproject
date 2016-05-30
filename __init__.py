@@ -29,31 +29,31 @@ def allowed_file(filename):
 def check_auth(user, password):
 	#value will acutaly be a random identifing token created when logged in and stored in DB. it will only be good
 	#for 24 hours then it wont be good. 
-	if session.has_key('value'):
+	if session.has_key('value'): #add check that user is value in session
 		return True
 	else:
 		return False
 
-def authenticate():
+#def authenticate():
 #    """Sends a 401 response that enables basic auth"""
 #    return Response(
 #    'Could not verify your access level for that URL.\n'
 #    'You have to login with proper credentials', 401,
 #    {'WWW-Authenticate': 'Basic realm="Login Required"'})
-	if session.has_key('value'):
-		return True
-	else:
-		return False
+#	if session.has_key('value'):
+#		return True
+#	else:
+# as 		return False
 
 
-def requires_auth(f):
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        auth = request.authorization
-        if not auth or not check_auth(auth.username, auth.password):
-            return authenticate()
-        return f(*args, **kwargs)
-    return decorated
+#def requires_auth(f):
+#    @wraps(f)
+#    def decorated(*args, **kwargs):
+#        auth = request.authorization
+#        if not auth or not check_auth(auth.username, auth.password):
+#            return authenticate()
+#        return f(*args, **kwargs)
+#    return decorated
 
 
 @app.route("/")
@@ -71,7 +71,7 @@ def getFileDetails(fileIdIn):
 def getThumb(fileIdIn):
 	serverFacade = ServerFacade()
 	result, fileName, owner, thumb = serverFacade.checkFileAuth(session['value'],fileIdIn)
-	if(result == True): #double check we are authorized, this should already be caught by @requires_auth
+	if(result == True): 
 		#if file not exist deal with it correctly
 		return send_from_directory(filesPath + "/userFiles/"+owner,thumb)
 	else:
@@ -81,7 +81,7 @@ def getThumb(fileIdIn):
 def getFile(fileIdIn):
 	serverFacade = ServerFacade()
 	result, fileName, owner,thumb = serverFacade.checkFileAuth(session['value'],fileIdIn)
-	if(result == True): #double check we are authorized, this should already be caught by @requires_auth
+	if(result == True): 
 		#if file not exist deal with it correctly
 		return send_from_directory(filesPath + "/userFiles/"+owner,fileName)
 	else:
@@ -159,16 +159,6 @@ def login():
 	else:
 		return json.dumps({'status':"notAuth"})
 
-#	status = validateUser(email, data['password'])
-#	if(status == MyResponses.not_valid_email):
-#		return authenticate()
-#	elif(status == MyResponses.not_valid_password):
-#		return authenticate()
-#	elif(status == MyResponses.success):
-#		session['value'] = email.lower()
-#		return json.dumps({'status':"success"})
-#	else:
-#		return errorPage("ERROR")
 
 @app.route("/register", methods=['POST'])
 def register():
