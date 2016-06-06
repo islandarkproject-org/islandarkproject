@@ -198,8 +198,8 @@ def removeCookie(response):
 
 @app.route("/getBios")
 def getBios():
-	from theTeam import dave, dennis, ingmar, nick, blaine, tess, sanya
-	temp = [dave, dennis, ingmar, nick, blaine, tess, sanya]
+	from theTeam import *
+	temp = theTeam
 	#return jsonify(temp)
 	return json.dumps(temp)
 
