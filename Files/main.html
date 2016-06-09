@@ -72,17 +72,17 @@
 			</div>
 			<div id="navbarCollapse" class="collapse navbar-collapse">				
 			    <ul class="nav navbar-nav">
-				<li><a ui-sref="home" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Home</a></li>
-				<li><a ui-sref="uploader" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> Upload New Content</a></li>
-				<li><a ui-sref="viewContent" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> View Uploaded Content</a></li>
+				<li><a ui-sref="home" class="fa fa-home" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Home</a></li>
+				<li><a ui-sref="uploader" class="fa fa-upload" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> Upload New Content</a></li>
+				<li><a ui-sref="viewContent" class="fa fa-eye" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> View Uploaded Content</a></li>
 			   </ul>
 			   <ul class="nav navbar-nav navbar-right">
-				<li><a ui-sref="userProfile" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}"> 
+				<li><a ui-sref="userProfile" class="fa fa-cog" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">
 					{%raw%}Welcome {{ userName }}{%endraw%}
 				    </a>
 				</li>
-				<li ng-show="!authenticated"><a ui-sref="logIn" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Log in</a></li>
-				<li ng-show="authenticated"><a ui-sref="logOut" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Log out</a></li>
+				<li ng-show="!authenticated"><a ui-sref="logIn" class="fa fa-sign-in" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Log in</a></li>
+				<li ng-show="authenticated"><a ui-sref="logOut" class="fa fa-sign-out" ng-style="{color: $state.includes('home') ? 'white' : '#1ab2ff'}">Log out</a></li>
 			    </ul>
 			</div>
 		</nav>
@@ -124,13 +124,13 @@
 		</div>
 		<footer class="myFooter footer">
 		    <ul class="nav navbar-nav">
-			<li><a ui-sref="home">Home</a></li>
-			<li><a ui-sref="uploader"> Upload new Content</a></li>
-			<li><a ui-sref="viewContent"> View Content</a></li>
-			<li><a ui-sref="about">About</a></li>
-			<li><a ui-sref="contact">Contact</a></li>
-			<li ng-show="!authenticated"><a ui-sref="logIn">Log in</a></li>
-			<li ng-show="authenticated"><a ui-sref="logOut">Log out</a></li>
+			<li><a ui-sref="home" class="fa fa-home">Home</a></li>
+			<li><a ui-sref="uploader" class="fa fa-upload"> Upload new Content</a></li>
+			<li><a ui-sref="viewContent" class="fa fa-eye"> View Content</a></li>
+			<li><a ui-sref="about" class="fa fa-info-circle">About</a></li>
+			<li><a ui-sref="contact" class="fa fa-envelope">Contact</a></li>
+			<li ng-show="!authenticated"><a ui-sref="logIn" class="fa fa-sign-in">Log in</a></li>
+			<li ng-show="authenticated"><a ui-sref="logOut" class="fa fa-sign-out">Log out</a></li>
 		    </ul>
 		</footer>
 	</div>
