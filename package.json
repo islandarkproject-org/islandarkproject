@@ -1,0 +1,20 @@
+{
+  "name": "islandarkproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/islandarkproject-org/islandarkproject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/islandarkproject-org/islandarkproject/issues"
+  },
+  "homepage": "https://github.com/islandarkproject-org/islandarkproject#readme"
+}
