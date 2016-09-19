@@ -1,0 +1,49 @@
+.Navigation {
+  @include onMobile(flex-wrap, wrap);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 30px;
+  width: 100%;
+
+  ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+
+    li {
+      margin: 0 5px;
+
+      button {
+        @include responsiveProp(padding, 5px, 10px, 10px, 5px, 10px);
+        background: none;
+        border: none;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        outline: none;
+        padding: 5px;
+        text-transform: uppercase;
+        vertical-align: middle;
+
+        .TitleText {
+          padding: 5px;
+        }
+
+        &:hover {
+          background: black;
+          color: white;
+          
+          .TitleText {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .logo-root, .links {
+    @include onMobile(padding, 15px);
+    @include onMobile(width, 100%);
+  }
+}

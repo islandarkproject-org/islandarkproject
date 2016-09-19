@@ -1,0 +1,24 @@
+.FeatureDescription {
+  padding: 50px 20px;
+
+  & > .TitleText {
+    padding: 30px;
+    text-align: center;
+  }
+
+  ul {
+    @include responsiveProp(flex-direction, column, column, column, row, row);
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    
+    li {
+      padding: 20px;
+      text-align: center;
+
+      svg {
+        padding: 20px;
+      }
+    }
+  }
+}

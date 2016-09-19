@@ -1,0 +1,32 @@
+.How {
+  @include responsiveProp(margin, 0, 0, 0, 0, 100px);
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  position: relative;
+
+  .intro {
+    width: 100%;
+
+    div {
+      @include responsiveProp(width, 100%, 100%, 100%, 50%, 40%);
+      @include onMobile(float, none);
+      @include onMobile(text-align, justify);
+      float: left;
+      text-align: left;
+    }
+  }
+
+  .what-we-do {
+    margin-top: 105px;
+    width: 100%;
+
+    div {
+      @include responsiveProp(width, 100%, 100%, 100%, 50%, 40%);
+      @include onMobile(float, none);
+      @include onMobile(text-align, justify);
+      float: right;
+      text-align: right;
+    }
+  }
+}

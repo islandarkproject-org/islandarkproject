@@ -1,0 +1,25 @@
+.Splash {
+  @include responsiveProp(height, 400px, 700px, 550px, 500px, 700px);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  .TitleText {
+    @include onMobile(font-size, 22px);
+    @include responsiveProp(margin-top, 0px, -100px, 0px, -50px, 0px);
+    font-size: 48px;
+  }
+
+  .tagline {
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .Button {
+    @include responsiveProp(margin-top, 50px, 50px, 50px, 50px, 100px);
+  }
+}

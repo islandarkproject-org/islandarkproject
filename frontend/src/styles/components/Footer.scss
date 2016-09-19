@@ -1,0 +1,36 @@
+.Footer {
+  background: black;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 60px;
+
+  .brand {
+    text-align: center;
+    width: 100%;
+
+    .BodyText {
+      color: white;
+    }
+  }
+
+  ul {
+    @include onMobile(flex-direction, column);
+    @include onMobile(flex-wrap, wrap);
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    width: 100%;
+
+    li {
+      padding: 10px 0px;
+
+      &:hover {
+        border-bottom: 1px solid white;
+        cursor: pointer;
+      }
+    }
+  }
+}

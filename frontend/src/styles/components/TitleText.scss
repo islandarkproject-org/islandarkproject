@@ -1,0 +1,11 @@
+.TitleText {
+  @include responsiveProp(font-size, 14px, 14px, 14px, 14px, 14px);
+  color: black;
+  font-family: 'Chivo';
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  padding: 10px;
+  text-indent: 2px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,16 @@
+.DonatePrompt {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 50px;
+  text-align: center;
+
+  .TitleText {
+    padding: 20px;
+  }
+
+  .Button {
+    margin: 50px;
+  }
+}

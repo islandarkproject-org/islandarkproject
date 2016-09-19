@@ -1,0 +1,12 @@
+.FadingPhotos {
+  @include onMobile(flex-direction, column);
+  @include onMobile(flex-wrap, wrap);
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+
+  img {
+    @include responsiveProp(padding, 20px, 20px, 20px, 50px, 50px);
+    @include onMobile(width, 100% !important);
+  }
+}

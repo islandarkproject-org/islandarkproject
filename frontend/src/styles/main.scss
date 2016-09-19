@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Chivo|Mada|Rasa|Heebo|Pontano+Sans|Rubik|Cormorant+Garamond|Montserrat|Lato|Anonymous+Pro|');
+@import './mixins.scss';
+@import './reset.scss';
+@import './components/components.scss';
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+@-ms-viewport{
+  width: device-width;
+}

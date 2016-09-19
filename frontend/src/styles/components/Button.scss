@@ -1,0 +1,21 @@
+.Button {
+  background: none;
+  border: 2px solid black;
+  border-radius: 7.5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  height: 50px;
+  outline: none;
+  padding: 0 40px;
+  text-indent: 2px;
+  text-transform: uppercase;
+  width: 250px;
+
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
