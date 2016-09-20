@@ -1,7 +1,7 @@
 module.exports = {
   entry: './frontend/src/index.js',
   output: {
-    filename: './frontend/dist/bundle.js'
+    filename: './static/bundle.js'
   },
   devServer: {
     port: 3000,
