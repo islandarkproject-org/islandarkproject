@@ -11,7 +11,6 @@ class App extends React.Component {
         <Navigation />
         <LandingPage />
         <Footer />
-        <Uploader />
       </div>
     )
   }
