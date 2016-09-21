@@ -31,11 +31,11 @@
         }
 
         &:hover {
-          background: black;
-          color: white;
+          background: $primary-color;
+          color: $secondary-color;
           
           .TitleText {
-            color: white;
+            color: $secondary-color;
           }
         }
       }

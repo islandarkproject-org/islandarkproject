@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Chivo|Mada|Rasa|Heebo|Pontano+Sans|Rubik|Cormorant+Garamond|Montserrat|Lato|Anonymous+Pro|');
+@import url('https://fonts.googleapis.com/css?family=Chivo');
 @import './mixins.scss';
 @import './reset.scss';
+@import './vars.scss';
 @import './components/components.scss';
 
 html, body, #root {

@@ -1,6 +1,6 @@
 .Footer {
-  background: black;
-  color: white;
+  background: $primary-color;
+  color: $secondary-color;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -11,7 +11,7 @@
     width: 100%;
 
     .BodyText {
-      color: white;
+      color: $secondary-color;
     }
   }
 
@@ -28,7 +28,7 @@
       padding: 10px 0px;
 
       &:hover {
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid $secondary-color;
         cursor: pointer;
       }
     }
