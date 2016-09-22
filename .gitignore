@@ -3,3 +3,4 @@ Files/userFiles/
 *.pyc
 node_modules
 index.html
+static/bundle.js
