@@ -1,3 +1,5 @@
+import * as api from '../api'
+
 /*
  * Action Types
  */
@@ -7,8 +9,6 @@ export const REGISTER = 'REGISTER'
 export const LOG_OUT = 'LOG_OUT'
 export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT'
 export const UPLOAD_MEDIA = 'UPLOAD_MEDIA'
-export const SET_FILTER = 'SET_FILTER'
-
 /*
  * Other Constants
  */
