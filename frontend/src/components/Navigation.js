@@ -15,7 +15,9 @@ class Navigation extends React.Component {
       <nav className='Navigation'>
         <ul className='logo-root'>
           <li>
-            <Logo />
+            <Link to='/'>
+              <Logo />
+            </Link>
           </li>
         </ul>
         <ul className='links'>
