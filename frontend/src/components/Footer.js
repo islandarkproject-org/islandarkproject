@@ -12,7 +12,11 @@ class Footer extends React.Component {
           <BodyText>Island Ark Project</BodyText>
         </div>
         <ul>
-          <li>Home</li>
+          <li>
+            <Link to='/'>
+              Home
+            </Link>
+          </li>
           <li>Upload</li>
           <li>View</li>
           <li>About</li>
