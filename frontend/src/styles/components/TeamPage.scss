@@ -1,0 +1,12 @@
+.TeamPage {
+  .team-members {
+    align-items: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .TitleText {
+    text-align: center;
+  }
+}

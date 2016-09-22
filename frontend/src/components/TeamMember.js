@@ -10,10 +10,16 @@ class TeamMember extends React.Component {
     return (
       <div className='TeamMember'>
         <TitleText>{this.props.name}</TitleText>
-        <img src={this.props.imageUrl} alt={this.props.name} />
-        <BodyText>
-          {this.props.bio}
-        </BodyText>
+        <div className='person-container'>
+          <div className='photo-container'>
+            <img className='team-member-photo' src={this.props.imageUrl} alt={this.props.name + ' Photo'} />
+          </div>
+          <div className='bio'>
+            <BodyText>
+              {this.props.bio}
+            </BodyText>
+          </div>
+        </div>
       </div>
     )
   }

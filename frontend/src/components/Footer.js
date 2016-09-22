@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from './Logo'
 import BodyText from './BodyText'
+import { Link } from 'react-router'
 
 class Footer extends React.Component {
   render () {
@@ -15,6 +16,11 @@ class Footer extends React.Component {
           <li>Upload</li>
           <li>View</li>
           <li>About</li>
+          <li>
+            <Link to='team'>
+              Team
+            </Link>
+          </li>
           <li>Contact</li>
           <li>Log In</li>
           <li>Sign Up</li>
