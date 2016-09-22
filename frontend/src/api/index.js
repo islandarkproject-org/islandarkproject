@@ -1,5 +1,5 @@
 export function getJSON (url) {
-  let d = new Promise((resolve reject) => {
+  let d = new Promise((resolve, reject) => {
     let req = new XMLHttpRequest()
     req.open('GET', url)
     req.send()
@@ -14,4 +14,10 @@ export function getJSON (url) {
   })
   .then((responseData) => JSON.parse(responseData))
   .catch((error) => console.log(error))
+
+  return d
+}
+
+export function fetchTeamData () {
+  return getJSON('./frontend/src/team.json')
 }
