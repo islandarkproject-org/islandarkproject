@@ -56,8 +56,9 @@ def check_auth(user, password):
 #    return decorated
 
 
-@app.route("/")
-def index():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def index(path):
 	return render_template('main.html')	
 	#return send_from_directory(filesPath,'main.html')
 		
