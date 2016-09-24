@@ -4,7 +4,7 @@ require('./styles/main.scss')
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 
 import App from './components/App'
 import LandingPage from './components/LandingPage'
@@ -17,7 +17,7 @@ const rootEl = document.getElementById('root')
 
 render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path='/' component={App}>
         <Route path='team' component={TeamPage} />
         <Route path='upload' component={UploaderContainer} />
