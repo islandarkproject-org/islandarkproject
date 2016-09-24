@@ -1,6 +1,8 @@
+import { UPLOAD_MEDIA } from '../actions'
+
 function media (state = [], action) {
   switch (action.type) {
-    case 'UPLOAD_MEDIA':
+    case UPLOAD_MEDIA:
       return [
         ...state,
         {

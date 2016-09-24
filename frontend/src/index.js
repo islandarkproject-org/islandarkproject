@@ -9,6 +9,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import App from './components/App'
 import LandingPage from './components/LandingPage'
 import TeamPage from './components/TeamPage'
+import UploaderContainer from './containers/UploaderContainer'
 
 import store from './configureStore'
 
@@ -19,6 +20,7 @@ render(
     <Router history={browserHistory}>
       <Route path='/' component={App}>
         <Route path='team' component={TeamPage} />
+        <Route path='upload' component={UploaderContainer} />
         <IndexRoute component={LandingPage} />
       </Route>
     </Router>

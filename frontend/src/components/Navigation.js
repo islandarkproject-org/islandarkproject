@@ -22,9 +22,11 @@ class Navigation extends React.Component {
         </ul>
         <ul className='links'>
           <li>
-            <button>
-              <IoUpload size={25} /> <TitleText>Upload</TitleText>
-            </button>
+            <Link to='upload'>
+              <button>
+                <IoUpload size={25} /> <TitleText>Upload</TitleText>
+              </button>
+            </Link>
           </li>
           <li>
             <button>

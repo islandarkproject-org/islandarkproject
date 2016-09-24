@@ -17,7 +17,11 @@ class Footer extends React.Component {
               Home
             </Link>
           </li>
-          <li>Upload</li>
+          <li>
+            <Link to='upload'>
+              Upload
+            </Link>
+          </li>
           <li>View</li>
           <li>About</li>
           <li>
