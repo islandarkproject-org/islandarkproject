@@ -3,6 +3,7 @@ import Dropzone from 'react-dropzone'
 import TitleText from './TitleText'
 import BodyText from './BodyText'
 import Button from './Button'
+import UploadForm from './UploadForm'
 
 class Uploader extends React.Component {
   constructor () {
@@ -16,13 +17,16 @@ class Uploader extends React.Component {
 
   render () {
     let resetStyle = {}
-    let uploadForms = this.props.uploadedMedia.map((medium) => 
-      medium.media.map((file) =>
-        <form>
-          <input type='text' value={file.name} onChange={(e) => e} />
-        </form>
-      )
-    )
+    let info = this.props.uploadedMedia.info
+
+    // Once the file(s) have been uploaded, display a form to edit the info for submission
+    let uploadForm = info ? <UploadForm
+                        name={info.name}
+                        description={info.description}
+                        tags={info.tags}
+                        isPrivate={info.isPrivate}
+                        location={info.location} /> : null
+
     return (
       <section className='Uploader'>
         <TitleText>Upload Media</TitleText>
@@ -35,7 +39,7 @@ class Uploader extends React.Component {
             <p>or:</p>
             <Button className='upload-button'>Start Upload</Button>
           </Dropzone>
-          {uploadForms}
+          {uploadForm}
         </div>
       </section>
     )
