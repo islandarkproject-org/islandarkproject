@@ -1,7 +1,7 @@
 .TitleText {
   @include responsiveProp(font-size, 14px, 14px, 14px, 14px, 14px);
   color: $primary-color;
-  font-family: $primary-type;
+  font-family: $title-type;
   font-weight: 600;
   letter-spacing: 2px;
   line-height: 1.5;
