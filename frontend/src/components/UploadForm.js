@@ -12,7 +12,7 @@ class UploadForm extends React.Component {
         </label>
         <label>
           <h4>Describe Your Upload</h4>
-          <textarea placeholder='Describe this upload'>{this.props.description}</textarea>
+          <textarea placeholder='Describe this upload' value={this.props.description} />
         </label>
         <label>
           <h4>Tag Your Upload</h4>
@@ -20,7 +20,7 @@ class UploadForm extends React.Component {
         </label>
         <label>
           <h4>Make this public? Remove the check to make it private.</h4>
-          <IAPCheckBox checked={!this.props.isPrivate} />
+          Make public: <IAPCheckBox checked={!this.props.isPrivate} />
         </label>
         <label>
           <h4>Location of the Upload</h4>
