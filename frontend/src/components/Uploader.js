@@ -21,6 +21,7 @@ class Uploader extends React.Component {
 
     // Once the file(s) have been uploaded, display a form to edit the info for submission
     let uploadForm = info ? <UploadForm
+                        updateUploadInfo={this.props.updateUploadInfo}
                         name={info.name}
                         description={info.description}
                         tags={info.tags}
@@ -37,7 +38,7 @@ class Uploader extends React.Component {
           <Dropzone onDrop={this.uploadMedia} style={resetStyle} className='Dropzone'>
             <p>Drag and Drop</p>
             <p>or:</p>
-            <Button className='upload-button'>Start Upload</Button>
+            <Button className='upload-button'>Browse Files</Button>
           </Dropzone>
           {uploadForm}
         </div>

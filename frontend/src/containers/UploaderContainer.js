@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { uploadMedia } from '../actions'
+import { uploadMedia, updateUploadInfo } from '../actions'
 import Uploader from '../components/Uploader'
 
 const mapStateToProps = (state) => {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    uploadMedia: (media) => dispatch(uploadMedia(media))
+    uploadMedia: (media) => dispatch(uploadMedia(media)),
+    updateUploadInfo: (field, value) => dispatch(updateUploadInfo(field, value))
   }
 }
 

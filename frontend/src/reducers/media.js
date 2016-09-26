@@ -1,4 +1,4 @@
-import { UPLOAD_MEDIA } from '../actions'
+import { UPLOAD_MEDIA, UPDATE_UPLOAD_INFO } from '../actions'
 import { trimFileExtension } from '../helpers'
 
 function media (state = {}, action) {
@@ -13,6 +13,11 @@ function media (state = {}, action) {
           isPrivate: false,
           location: ''
         }
+      }
+    case UPDATE_UPLOAD_INFO:
+      return {
+        files: state.files,
+        info: Object.assign({}, state.info, { [action.field]: action.value })
       }
     default:
       return state
