@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import BodyText from './BodyText'
 import IAPTextInput from './IAPTextInput'
 import IAPTextArea from './IAPTextArea'
 import IAPCheckBox from './IAPCheckBox'
@@ -25,23 +26,23 @@ class UploadForm extends React.Component {
     return (
       <form className='UploadForm'>
         <label>
-          <h4>Name Your Upload</h4>
+          <BodyText>Name Your Upload</BodyText>
           <IAPTextInput placeholder='Enter a name' value={this.props.name} onChange={(e) => this.handleOnChange(e, 'name')} />
         </label>
         <label>
-          <h4>Describe Your Upload</h4>
+          <BodyText>Describe Your Upload</BodyText>
           <IAPTextArea placeholder='e.g. Photo showing how birthdays are celebrated in Palau' value={this.props.description} onChange={(e) => this.handleOnChange(e, 'description')} />
         </label>
         <label>
-          <h4>Tag Your Upload (separate tags with commas)</h4>
+          <BodyText>Tag Your Upload (separate tags with commas)</BodyText>
           <IAPTextInput placeholder='Celebration, language, etc.' value={this.props.tags.join(', ')} onChange={(e) => this.handleOnChange(e, 'tags')} />
         </label>
         <label>
-          <h4>Make this private? Check the box to make it private.</h4>
+          <BodyText>Make this private? Check the box to make it private.</BodyText>
           <IAPCheckBox checked={this.props.isPrivate} onClick={(e) => this.handleOnChange(e, 'isPrivate')} />
         </label>
         <label>
-          <h4>Location of the Upload</h4>
+          <BodyText>Location of the Upload</BodyText>
           <IAPTextInput placeholder='Enter the location' value={this.props.location} onChange={(e) => this.handleOnChange(e, 'location')} />
         </label>
       </form>

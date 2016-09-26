@@ -1,5 +1,5 @@
 .UploadForm {
-  @include onMobile(width, 300px);
+  @include onMobile(width, 280px);
   align-items: center;
   border: 2px solid $primary-color;
   display: flex;
