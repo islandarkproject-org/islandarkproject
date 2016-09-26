@@ -1,0 +1,24 @@
+.UploadForm {
+  @include onMobile(width, 300px);
+  align-items: center;
+  border: 2px solid $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 50px;
+  width: 600px;
+
+  label {
+    margin: 20px auto;
+
+    h4 {
+      padding: 20px;
+    }
+
+    textarea {
+      height: 200px;
+      text-align: center;
+      width: 250px;
+    }
+  }
+}

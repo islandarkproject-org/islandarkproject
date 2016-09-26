@@ -1,19 +1,25 @@
 .Uploader {
-  height: 80%;
+  padding-bottom: 100px;
   text-align: center;
 
   .upload-area {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
     .Dropzone {
       // Styles for dropzone
+      @include onMobile(width, 300px);
       align-items: center;
       border: 2px solid $primary-color;
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
       justify-content: center;
-      height: 50%;
+      height: 400px;
       margin: 50px auto;
-      width: 80%;
+      padding: 20px;
+      width: 600px;
 
       p {
         margin: 20px auto;
