@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import Dropzone from 'react-dropzone'
 import TitleText from './TitleText'
 import BodyText from './BodyText'
@@ -55,6 +55,21 @@ class Uploader extends React.Component {
       </section>
     )
   }
+}
+
+Uploader.propTypes = {
+  uploadMedia: PropTypes.func.isRequired,
+  uploadedMedia: PropTypes.shape({
+    files: PropTypes.arrayOf(PropTypes.object),
+    info: PropTypes.shape({
+      name: PropTypes.string,
+      description: PropTypes.string,
+      tags: PropTypes.arrayOf(PropTypes.string),
+      isPrivate: PropTypes.bool,
+      location: PropTypes.string
+    })
+  }),
+  updateUploadInfo: PropTypes.func.isRequired
 }
 
 export default Uploader
