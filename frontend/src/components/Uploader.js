@@ -4,11 +4,16 @@ import TitleText from './TitleText'
 import BodyText from './BodyText'
 import Button from './Button'
 import UploadForm from './UploadForm'
+import { scrollToElement } from '../helpers'
 
 class Uploader extends React.Component {
   constructor () {
     super()
     this.uploadMedia = this.uploadMedia.bind(this)
+  }
+
+  componentDidUpdate () {
+    scrollToElement(this._uploadForm)
   }
 
   uploadMedia (media) {
@@ -21,12 +26,14 @@ class Uploader extends React.Component {
 
     // Once the file(s) have been uploaded, display a form to edit the info for submission
     let uploadForm = info ? <UploadForm
-                        updateUploadInfo={this.props.updateUploadInfo}
-                        name={info.name}
-                        description={info.description}
-                        tags={info.tags}
-                        isPrivate={info.isPrivate}
-                        location={info.location} /> : null
+                              ref={(c) => this._uploadForm = c}
+                              updateUploadInfo={this.props.updateUploadInfo}
+                              name={info.name}
+                              description={info.description}
+                              tags={info.tags}
+                              isPrivate={info.isPrivate}
+                              location={info.location}
+                            /> : null
 
     return (
       <section className='Uploader'>

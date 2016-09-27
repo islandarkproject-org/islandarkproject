@@ -3,7 +3,6 @@ import { uploadMedia, updateUploadInfo } from '../actions'
 import Uploader from '../components/Uploader'
 
 const mapStateToProps = (state) => {
-  console.log(state.media)
   return {
     uploadedMedia: state.media
   }
