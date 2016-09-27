@@ -12,8 +12,11 @@ class Uploader extends React.Component {
     this.uploadMedia = this.uploadMedia.bind(this)
   }
 
-  componentDidUpdate () {
-    scrollToElement(this._uploadForm)
+  componentDidUpdate (prevProps) {
+    // Move view to upload form if file was just uploaded
+    if (!prevProps.uploadedMedia.info && !!this.props.uploadedMedia.info) {
+      scrollToElement(this._uploadForm)
+    }
   }
 
   uploadMedia (media) {
