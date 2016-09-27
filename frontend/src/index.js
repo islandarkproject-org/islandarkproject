@@ -17,7 +17,7 @@ const rootEl = document.getElementById('root')
 
 render(
   <Provider store={store}>
-    <Router history={hashHistory}>
+    <Router history={hashHistory} onUpdate={() => window.scrollTo(0, 0)}>
       <Route path='/' component={App}>
         <Route path='team' component={TeamPage} />
         <Route path='upload' component={UploaderContainer} />
