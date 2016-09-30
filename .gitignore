@@ -4,3 +4,4 @@ Files/userFiles/
 node_modules
 index.html
 static/bundle.js
+npm-debug.log
