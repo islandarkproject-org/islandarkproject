@@ -41,6 +41,7 @@
     "webpack-dev-server": "1.14.1"
   },
   "devDependencies": {
+    "babel-register": "6.16.3",
     "expect": "1.20.2",
     "mocha": "3.1.0"
   }
