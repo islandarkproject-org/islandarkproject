@@ -17,7 +17,13 @@ function media (state = {}, action) {
     case UPDATE_UPLOAD_INFO:
       return {
         files: state.files,
-        info: Object.assign({}, state.info, { [action.field]: action.value })
+        info: Object.assign(
+          {},
+          state.info,
+          {
+            [action.field]: action.value
+          }
+        )
       }
     default:
       return state
