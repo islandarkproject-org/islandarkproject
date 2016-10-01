@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --env.dev",
     "test": "mocha './frontend/tests/**/*.spec.js' --compilers js:babel-core/register",
     "build:dev": "webpack --env.dev",
-    "build:prod": "webpack --env.prod -p",
+    "build:prod": "webpack --env.prod",
     "validate-webpack": "npm-run-all --parallel validate-webpack:*",
     "validate-webpack:dev": "webpack-validator webpack.config.js --env.dev",
     "validate-webpack:prod": "webpack-validator webpack.config.js --env.prod"
