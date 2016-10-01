@@ -4,6 +4,7 @@ import TitleText from './TitleText'
 import BodyText from './BodyText'
 import Button from './Button'
 import UploadForm from './UploadForm'
+import ImgPreview from './ImgPreview'
 import { scrollToElement } from '../helpers'
 
 class Uploader extends React.Component {
@@ -24,18 +25,29 @@ class Uploader extends React.Component {
   }
 
   render () {
-    let resetStyle = {}
-    let info = this.props.uploadedMedia.info
+    let uploadedMedia = this.props.uploadedMedia,
+        resetStyle = {},
+        info = this.props.uploadedMedia.info,
+        preview
+
+    if (uploadedMedia.files) {
+      // Show preview of file if it is an image, otherwise show the file name
+      // UX point to indicate that it has been uploaded
+      let firstFile = uploadedMedia.files[0],
+          moreFiles = uploadedMedia.files.length - 1
+
+      if (/(image)/.test(firstFile.type)) {
+        preview = <ImgPreview src={firstFile.preview} name={firstFile.name} moreFiles={moreFiles} height='50%'/>
+      } else {
+        preview = <h4 className='preview'>{firstFile.name} (+{moreFiles})</h4>
+      }
+    }
 
     // Once the file(s) have been uploaded, display a form to edit the info for submission
     let uploadForm = info ? <UploadForm
                               ref={(c) => this._uploadForm = c}
                               updateUploadInfo={this.props.updateUploadInfo}
-                              name={info.name}
-                              description={info.description}
-                              tags={info.tags}
-                              isPrivate={info.isPrivate}
-                              location={info.location}
+                              {...info}
                             /> : null
 
     return (
@@ -46,8 +58,8 @@ class Uploader extends React.Component {
         </BodyText>
         <div className='upload-area'>
           <Dropzone onDrop={this.uploadMedia} style={resetStyle} className='Dropzone'>
-            <p>Drag and Drop</p>
-            <p>or:</p>
+            <TitleText>Uploaded:</TitleText>
+            {preview}
             <Button className='upload-button'>Browse Files</Button>
           </Dropzone>
           {uploadForm}

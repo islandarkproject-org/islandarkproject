@@ -1,0 +1,9 @@
+.OverlayIndicator {
+  // Parent of OverlayIndicator should have position relative
+  color: $secondary-color;
+  font-family: $title-type;
+  font-size: 32px;
+  padding: 10px;
+  position: absolute;
+  text-shadow: 1px 1px 1px black;
+}
