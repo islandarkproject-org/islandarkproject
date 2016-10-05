@@ -34,9 +34,11 @@ class Navigation extends React.Component {
             </button>
           </li>
           <li>
-            <button>
-              <IoLogIn size={25} /> <TitleText>Log In</TitleText>
-            </button>
+            <Link to='login'>
+              <button>
+                <IoLogIn size={25} /> <TitleText>Log In</TitleText>
+              </button>
+            </Link>
           </li>
         </ul>
       </nav>

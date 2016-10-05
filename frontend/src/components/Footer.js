@@ -30,7 +30,11 @@ class Footer extends React.Component {
             </Link>
           </li>
           <li>Contact</li>
-          <li>Log In</li>
+          <li>
+            <Link to='login'>
+              Log In
+            </Link>
+          </li>
           <li>Sign Up</li>
         </ul>
       </footer>
