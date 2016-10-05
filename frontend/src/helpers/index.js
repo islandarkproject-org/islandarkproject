@@ -4,9 +4,9 @@ const acceptedFileExtensions = /\.(png|jpe?g|gif|bmp|txt|doc|pdf|wav|mp3|mp4|mov
 
 export const trimFileExtension = filename => filename.replace(acceptedFileExtensions, '')
 
-export const scrollToElement = (el) => {
-  el = ReactDOM.findDOMNode(el)
-  let offset = el.getBoundingClientRect().top
+export const scrollToElement = (elem) => {
+  elem = ReactDOM.findDOMNode(elem)
+  let offset = elem.getBoundingClientRect().top
 
   return window.scrollTo(0, offset)
 }
