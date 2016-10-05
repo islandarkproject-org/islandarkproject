@@ -12,6 +12,24 @@ module.exports = env => {
       path: resolve(__dirname, 'static'),
       pathinfo: !env.prod
     },
+    'devServer': {
+      'contentBase': './',
+      'historyApiFallback': true,
+      'hot': true,
+      'port': 8080,
+      'publicPath': '/static/',
+      'quiet': false,
+      'noInfo': false,
+      'stats': {
+        'assets': true,
+        'colors': true,
+        'version': false,
+        'hash': false,
+        'timings': true,
+        'chunks': true,
+        'chunkModules': false
+      }
+    },
     context: resolve(__dirname, 'frontend'),
     devtool: env.prod ? 'source-map' : 'eval',
     bail: env.prod,
@@ -32,6 +50,7 @@ module.exports = env => {
       ]
     },
     plugins: removeEmpty([
+      new webpack.HotModuleReplacementPlugin(),
       ifProd(new webpack.optimize.DedupePlugin()),
       ifProd(new webpack.LoaderOptionsPlugin({
         minimize: true,
