@@ -12,11 +12,11 @@ class LoginPage extends React.Component {
         <BodyText>Login with your username and password.</BodyText>
         <label>
           <BodyText>Username</BodyText>
-          <IAPTextInput placeholder='Enter your username' />
+          <IAPTextInput placeholder='Enter your username' onChange={(e) => e} />
         </label>
         <label>
           <BodyText>Password</BodyText>
-          <IAPPasswordInput placeholder='Enter your password' />
+          <IAPPasswordInput placeholder='Enter your password' onChange={(e) => e} />
         </label>
       </section>
     )
