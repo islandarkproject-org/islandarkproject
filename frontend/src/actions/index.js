@@ -19,6 +19,13 @@ export const UPDATE_UPLOAD_INFO = 'UPDATE_UPLOAD_INFO'
  * Action Creators
  */
 
+export function logIn (details) {
+  return {
+    type: LOG_IN,
+    details
+  }
+}
+
 export function uploadMedia (media) {
   return {
     type: UPLOAD_MEDIA,
