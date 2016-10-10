@@ -10,3 +10,13 @@ export const scrollToElement = (elem) => {
 
   return window.scrollTo(0, offset)
 }
+
+export const getUserLocation = (callback) => {
+  if ('geolocation' in navigator) {
+    return navigator.geolocation.getCurrentPosition((position) =>
+      callback({ lat: position.coords.latitude, lng: position.coords.longitude })
+    )
+  } else {
+    return false
+  }
+}
