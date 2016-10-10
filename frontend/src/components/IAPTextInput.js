@@ -10,7 +10,8 @@ class IAPTextInput extends React.Component {
 
 IAPTextInput.propTypes = {
   placeholder: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  onChange: PropTypes.func
 }
 
 export default IAPTextInput
