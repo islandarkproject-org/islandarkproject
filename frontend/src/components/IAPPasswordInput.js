@@ -10,7 +10,7 @@ class IAPPasswordInput extends React.Component {
 
 IAPPasswordInput.propTypes = {
   placeholder: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func.isRequired
 }
 
 export default IAPPasswordInput

@@ -9,7 +9,8 @@ class IAPCheckBox extends React.Component {
 }
 
 IAPCheckBox.propTypes = {
-  checked: PropTypes.bool
+  checked: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
 }
 
 export default IAPCheckBox

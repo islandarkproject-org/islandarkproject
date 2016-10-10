@@ -11,7 +11,7 @@ class IAPTextInput extends React.Component {
 IAPTextInput.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func.isRequired
 }
 
 export default IAPTextInput
