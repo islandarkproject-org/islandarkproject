@@ -10,8 +10,14 @@ class LoginPage extends React.Component {
       <section className='LoginPage'>
         <TitleText>Login</TitleText>
         <BodyText>Login with your username and password.</BodyText>
-        <IAPTextInput placeholder='Enter your username or email address' />
-        <IAPPasswordInput placeholder='Enter your password' />
+        <label>
+          <BodyText>Username</BodyText>
+          <IAPTextInput placeholder='Enter your username' />
+        </label>
+        <label>
+          <BodyText>Password</BodyText>
+          <IAPPasswordInput placeholder='Enter your password' />
+        </label>
       </section>
     )
   }
