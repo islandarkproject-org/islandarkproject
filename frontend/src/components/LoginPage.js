@@ -1,12 +1,17 @@
 import React from 'react'
+import TitleText from './TitleText'
+import BodyText from './BodyText'
 import IAPTextInput from './IAPTextInput'
+import IAPPasswordInput from './IAPPasswordInput'
 
 class LoginPage extends React.Component {
   render () {
     return (
       <section className='LoginPage'>
-        <IAPTextInput placeholder='Enter you username or email address' />
-        <input type='password' placeholder='Enter your password' />
+        <TitleText>Login</TitleText>
+        <BodyText>Login with your username and password.</BodyText>
+        <IAPTextInput placeholder='Enter your username or email address' />
+        <IAPPasswordInput placeholder='Enter your password' />
       </section>
     )
   }
