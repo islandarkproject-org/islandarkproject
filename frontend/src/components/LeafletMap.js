@@ -29,8 +29,8 @@ class LeafletMap extends React.Component {
 
 LeafletMap.propTypes = {
   location: PropTypes.shape({
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired
+    lat: PropTypes.oneOfType([PropTypes.number, undefined]),
+    lng: PropTypes.oneOfType([PropTypes.number, undefined])
   }).isRequired
 }
 

@@ -3,7 +3,6 @@ import { setUserLocation } from '../actions'
 import LocationEnter from '../components/LocationEnter'
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     location: state.userLocation
   }

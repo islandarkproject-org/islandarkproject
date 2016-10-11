@@ -27,7 +27,11 @@ class LocationEnter extends React.Component {
 }
 
 LocationEnter.propTypes = {
-
+  location: PropTypes.shape({
+    lat: PropTypes.oneOfType([PropTypes.number, undefined]),
+    lng: PropTypes.oneOfType([PropTypes.number, undefined])
+  }).isRequired,
+  setUserLocation: PropTypes.func.isRequired
 }
 
 export default LocationEnter
