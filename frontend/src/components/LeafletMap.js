@@ -9,7 +9,7 @@ class LeafletMap extends React.Component {
       zoom: 13,
       attributionControl: false,
       layers: [
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+        L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png')
       ]
     })
   }
