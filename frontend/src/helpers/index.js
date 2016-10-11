@@ -11,12 +11,13 @@ export const scrollToElement = (elem) => {
   return window.scrollTo(0, offset)
 }
 
-export const getUserLocation = (callback) => {
+export const getUserLocation = (successCallback, failureCallback) => {
   if ('geolocation' in navigator) {
-    return navigator.geolocation.getCurrentPosition((position) =>
-      callback({ lat: position.coords.latitude, lng: position.coords.longitude })
+    return navigator.geolocation.getCurrentPosition(
+      (position) => successCallback({ lat: position.coords.latitude, lng: position.coords.longitude }),
+      (error) => failureCallback(error)
     )
   } else {
-    return false
+    return failureCallback('Geolocation API not found')
   }
 }

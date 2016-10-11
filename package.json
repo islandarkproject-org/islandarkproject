@@ -25,6 +25,7 @@
   "homepage": "https://github.com/islandarkproject-org/islandarkproject#readme",
   "dependencies": {
     "css-loader": "0.25.0",
+    "leaflet": "1.0.1",
     "node-sass": "3.10.1",
     "react": "15.3.2",
     "react-dom": "15.3.2",

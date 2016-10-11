@@ -3,6 +3,8 @@ import BodyText from './BodyText'
 import IAPTextInput from './IAPTextInput'
 import IAPTextArea from './IAPTextArea'
 import IAPCheckBox from './IAPCheckBox'
+import LocationEnterContainer from '../containers/LocationEnterContainer'
+
 
 class UploadForm extends React.Component {
   constructor () {
@@ -43,7 +45,7 @@ class UploadForm extends React.Component {
         </label>
         <label>
           <BodyText>Location of the Upload</BodyText>
-          <IAPTextInput placeholder='Enter the location' value={this.props.location} onChange={(e) => this.handleOnChange(e, 'location')} />
+          <LocationEnterContainer />
         </label>
       </form>
     )

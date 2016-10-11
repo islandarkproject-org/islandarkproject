@@ -10,6 +10,7 @@ export const LOG_OUT = 'LOG_OUT'
 export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT'
 export const UPLOAD_MEDIA = 'UPLOAD_MEDIA'
 export const UPDATE_UPLOAD_INFO = 'UPDATE_UPLOAD_INFO'
+export const SET_USER_LOCATION = 'SET_USER_LOCATION'
 
 /*
  * Other Constants
@@ -38,5 +39,12 @@ export function updateUploadInfo (field, value) {
     type: UPDATE_UPLOAD_INFO,
     field,
     value
+  }
+}
+
+export function setUserLocation (location) {
+  return {
+    type: SET_USER_LOCATION,
+    location
   }
 }
