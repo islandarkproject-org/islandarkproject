@@ -14,29 +14,34 @@ class LocationEnter extends React.Component {
 
   render () {
     const location = this.props.location
-    const map = location && location.lat && location.lng ?
+    const locationEntry = location && location.lat && location.lng ?
       <LeafletMap
         location={location}
-        onMapClick={(e) => this.props.setUserLocation(Object.assign({}, e.latlng))} />
+        onMapClick={(e) => this.props.updateUploadInfo('location', Object.assign({}, e.latlng))}
+        height={300}
+        width={300}
+      />
         : 
-      null
+      <IAPTextInput placeholder='Palau' onChange={(e) => this.props.updateUploadInfo('location', e.target.value)} />
 
     return (
       <div className='LocationEnter'>
-        <BodyText>Enter Your Location</BodyText>
-        <IAPTextInput placeholder='Palau' onChange={(e) => e} />
-        {map}
+        {locationEntry}
       </div>
     )
   }
 }
 
 LocationEnter.propTypes = {
-  location: PropTypes.shape({
-    lat: PropTypes.oneOfType([PropTypes.number, undefined]),
-    lng: PropTypes.oneOfType([PropTypes.number, undefined])
-  }).isRequired,
-  setUserLocation: PropTypes.func.isRequired
+  location: PropTypes.oneOfType([
+    PropTypes.shape({
+      lat: PropTypes.oneOfType([PropTypes.number, undefined]),
+      lng: PropTypes.oneOfType([PropTypes.number, undefined])
+    }),
+    PropTypes.string
+  ]).isRequired,
+  setUserLocation: PropTypes.func.isRequired,
+  updateUploadInfo: PropTypes.func.isRequired
 }
 
 export default LocationEnter

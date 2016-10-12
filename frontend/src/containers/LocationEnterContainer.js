@@ -1,16 +1,17 @@
 import { connect } from 'react-redux'
-import { setUserLocation } from '../actions'
+import { setUserLocation, updateUploadInfo } from '../actions'
 import LocationEnter from '../components/LocationEnter'
 
 const mapStateToProps = (state) => {
   return {
-    location: state.userLocation
+    location: state.media.info.location || state.userLocation
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setUserLocation: (location) => dispatch(setUserLocation(location))
+    setUserLocation: (location) => dispatch(setUserLocation(location)),
+    updateUploadInfo: (field, value) => dispatch(updateUploadInfo(field, value))
   }
 }
 

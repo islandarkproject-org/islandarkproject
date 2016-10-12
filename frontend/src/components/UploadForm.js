@@ -44,7 +44,8 @@ class UploadForm extends React.Component {
           <IAPCheckBox checked={this.props.isPrivate} onClick={(e) => this.handleOnChange(e, 'isPrivate')} />
         </label>
         <label>
-          <BodyText>Location of the Upload</BodyText>
+          <BodyText>Choose a Location for the Upload</BodyText>
+          <BodyText>(e.g. the location where a photo was taken)</BodyText>
           <LocationEnterContainer />
         </label>
       </form>
@@ -57,7 +58,13 @@ UploadForm.propTypes = {
   description: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   isPrivate: PropTypes.bool.isRequired,
-  location: PropTypes.string
+  location: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      lat: PropTypes.oneOfType([PropTypes.number, undefined]),
+      lng: PropTypes.oneOfType([PropTypes.number, undefined])
+    })
+  ]).isRequired
 }
 
 export default UploadForm

@@ -78,7 +78,13 @@ Uploader.propTypes = {
       description: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.string),
       isPrivate: PropTypes.bool,
-      location: PropTypes.string
+      location: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          lat: PropTypes.oneOfType([PropTypes.number, undefined]),
+          lng: PropTypes.oneOfType([PropTypes.number, undefined])
+        })
+      ]).isRequired
     })
   }),
   updateUploadInfo: PropTypes.func.isRequired
