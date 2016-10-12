@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Dropzone from 'react-dropzone'
 import TitleText from './TitleText'
 import BodyText from './BodyText'
-import Button from './Button'
+import IAPButton from './IAPButton'
 import UploadForm from './UploadForm'
 import ImgPreview from './ImgPreview'
 import { scrollToElement } from '../helpers'
@@ -60,7 +60,7 @@ class Uploader extends React.Component {
           <Dropzone onDrop={this.uploadMedia} style={resetStyle} className='Dropzone'>
             <TitleText>Uploaded:</TitleText>
             {preview}
-            <Button className='upload-button'>Browse Files</Button>
+            <IAPButton className='upload-button'>Browse Files</IAPButton>
           </Dropzone>
           {uploadForm}
         </div>

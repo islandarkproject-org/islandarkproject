@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import TitleText from './TitleText'
 import BodyText from './BodyText'
-import Button from './Button'
+import IAPButton from './IAPButton'
 import { Link } from 'react-router'
 
 class Splash extends React.Component {
@@ -17,7 +17,7 @@ class Splash extends React.Component {
         <TitleText>{this.props.title}</TitleText>
         <BodyText extraClasses={['tagline']}>{this.props.tagline}</BodyText>
         <Link to='/upload'>
-          <Button>{this.props.callToAction}</Button>
+          <IAPButton>{this.props.callToAction}</IAPButton>
         </Link>
       </div>
     )

@@ -19,7 +19,7 @@
     text-align: center;
   }
 
-  .Button {
+  .IAPButton {
     @include responsiveProp(margin-top, 50px, 50px, 50px, 50px, 100px);
   }
 }

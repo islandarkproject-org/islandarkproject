@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router'
-import Button from './Button'
 import Logo from './Logo'
 import TitleText from './TitleText'
 import IoUpload from 'react-icons/lib/io/upload'
