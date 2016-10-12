@@ -14,7 +14,12 @@ class LocationEnter extends React.Component {
 
   render () {
     const location = this.props.location
-    const map = location && location.lat && location.lng ? <LeafletMap location={location} /> : null
+    const map = location && location.lat && location.lng ?
+      <LeafletMap
+        location={location}
+        onMapClick={(e) => this.props.setUserLocation(Object.assign({}, e.latlng))} />
+        : 
+      null
 
     return (
       <div className='LocationEnter'>
