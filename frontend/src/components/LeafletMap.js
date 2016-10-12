@@ -33,14 +33,8 @@ class LeafletMap extends React.Component {
   }
 
   render () {
-    let style = {
-      border: '1px solid black',
-      height: `${this.props.height}px`,
-      width: `${this.props.width}px`
-    }
-
     return (
-      <div className='LeafletMap' style={style}></div>
+      <div className='LeafletMap'></div>
     )
   }
 }

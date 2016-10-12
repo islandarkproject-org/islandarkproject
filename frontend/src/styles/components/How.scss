@@ -1,5 +1,6 @@
 .How {
   @include responsiveProp(margin, 0, 0, 0, 0, 100px);
+  @include onMobile(padding, 30px);
   display: flex;
   flex-direction: column;
   padding: 50px;

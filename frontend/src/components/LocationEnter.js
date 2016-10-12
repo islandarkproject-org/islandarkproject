@@ -18,8 +18,6 @@ class LocationEnter extends React.Component {
       <LeafletMap
         location={location}
         onMapClick={(e) => this.props.updateUploadInfo('location', Object.assign({}, e.latlng))}
-        height={300}
-        width={300}
       />
         : 
       <IAPTextInput placeholder='Palau' onChange={(e) => this.props.updateUploadInfo('location', e.target.value)} />

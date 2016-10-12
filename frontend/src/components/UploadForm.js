@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import BodyText from './BodyText'
+import HelperText from './HelperText'
 import IAPTextInput from './IAPTextInput'
 import IAPTextArea from './IAPTextArea'
 import IAPCheckBox from './IAPCheckBox'
@@ -36,16 +37,18 @@ class UploadForm extends React.Component {
           <IAPTextArea placeholder='e.g. Photo showing how birthdays are celebrated in Palau' value={this.props.description} onChange={(e) => this.handleOnChange(e, 'description')} />
         </label>
         <label>
-          <BodyText>Tag Your Upload (separate tags with commas)</BodyText>
+          <BodyText>Tag Your Upload</BodyText>
+          <HelperText>(separate tags with commas)</HelperText>
           <IAPTextInput placeholder='Celebration, language, etc.' value={this.props.tags.join(', ')} onChange={(e) => this.handleOnChange(e, 'tags')} />
         </label>
         <label>
-          <BodyText>Make this private? Check the box to make it private.</BodyText>
+          <BodyText>Make this private?</BodyText>
+          <HelperText>Check the box to make it private.</HelperText>
           <IAPCheckBox checked={this.props.isPrivate} onClick={(e) => this.handleOnChange(e, 'isPrivate')} />
         </label>
         <label>
           <BodyText>Choose a Location for the Upload</BodyText>
-          <BodyText>(e.g. the location where a photo was taken)</BodyText>
+          <HelperText>(e.g. the location where a photo was taken)</HelperText>
           <LocationEnterContainer />
         </label>
       </form>

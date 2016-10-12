@@ -4,4 +4,12 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 20px;
+  width: 100%;
+  
+  .LeafletMap {
+    @include onMobile(height, 200px);
+    @include onMobile(width, 200px);
+    height: 300px;
+    width: 300px;
+  }
 }
