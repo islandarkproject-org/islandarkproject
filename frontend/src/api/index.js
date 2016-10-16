@@ -21,3 +21,23 @@ export function getJSON (url) {
 export function fetchTeamData () {
   return getJSON('./frontend/src/team.json')
 }
+
+export function logIn (details) {
+  let d = new Promise((resolve, reject) => {
+    let req = new XMLHttpRequest()
+    req.open('POST', './login?details=' + details)
+    req.send()
+
+    req.onload = function () {
+      if (this.status >= 200 && this.status < 300) {
+        resolve(this.response)
+      } else {
+        reject(this.statusText)
+      }
+    }
+  })
+  .then((response) => console.log(response))
+  .catch((error) => console.log(error))
+
+  return d
+}

@@ -3,21 +3,40 @@ import TitleText from './TitleText'
 import BodyText from './BodyText'
 import IAPTextInput from './IAPTextInput'
 import IAPPasswordInput from './IAPPasswordInput'
+import IAPButton from './IAPButton'
 
 class LoginPage extends React.Component {
+  constructor () {
+    super()
+    this.handleOnChange = this.handleOnChange.bind(this)
+  }
+
+  handleOnChange (e, field) {
+    return this.props.updateLoginDetails(field, e.target.value)
+  }
+
   render () {
     return (
       <section className='LoginPage'>
         <TitleText>Login</TitleText>
         <BodyText>Login with your username and password.</BodyText>
-        <label>
-          <BodyText>Username</BodyText>
-          <IAPTextInput placeholder='Enter your username' onChange={(e) => e} />
-        </label>
-        <label>
-          <BodyText>Password</BodyText>
-          <IAPPasswordInput placeholder='Enter your password' onChange={(e) => e} />
-        </label>
+        <form>
+          <label>
+            <BodyText>Username</BodyText>
+            <IAPTextInput
+              placeholder='Enter your username'
+              onChange={(e) => this.handleOnChange(e, 'username')}
+            />
+          </label>
+          <label>
+            <BodyText>Password</BodyText>
+            <IAPPasswordInput
+              placeholder='Enter your password'
+              onChange={(e) => this.handleOnChange(e, 'password')}
+            />
+          </label>
+          <IAPButton>Login</IAPButton>
+        </form>
       </section>
     )
   }

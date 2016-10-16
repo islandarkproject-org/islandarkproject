@@ -4,7 +4,7 @@ import * as api from '../api'
  * Action Types
  */
 
-export const LOG_IN = 'LOG_IN'
+export const UPDATE_LOGIN_DETAILS = 'UPDATE_LOGIN_DETAILS'
 export const REGISTER = 'REGISTER'
 export const LOG_OUT = 'LOG_OUT'
 export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT'
@@ -20,10 +20,11 @@ export const SET_USER_LOCATION = 'SET_USER_LOCATION'
  * Action Creators
  */
 
-export function logIn (details) {
+export function updateLoginDetails (field, value) {
   return {
-    type: LOG_IN,
-    details
+    type: UPDATE_LOGIN_DETAILS,
+    field,
+    value
   }
 }
 
