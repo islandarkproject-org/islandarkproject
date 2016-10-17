@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom'
+import L from 'leaflet'
 
 class LeafletMap extends React.Component {
   constructor () {
