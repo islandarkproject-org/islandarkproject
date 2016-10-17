@@ -1,15 +1,16 @@
-import { connect } from 'react-redux'
-import { updateLoginDetails } from '../actions'
+import { connect } from 'react-redux' 
+import { logIn, updateLoginDetails } from '../actions'
 import LoginPage from '../components/LoginPage'
 
 const mapStateToProps = (state) => {
   return {
-    logInDetails: state.logInDetails
+    loginDetails: state.loginDetails
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+  	logIn: (details) => dispatch(logIn(details)),
     updateLoginDetails: (field, value) => dispatch(updateLoginDetails(field, value))
   }
 }

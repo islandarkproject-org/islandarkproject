@@ -5,7 +5,7 @@ const defaultState = {
   password: ''
 }
 
-function logInDetails (state = defaultState, action) {
+function loginDetails (state = defaultState, action) {
   switch (action.type) {
     case UPDATE_LOGIN_DETAILS:
       return Object.assign(
@@ -20,4 +20,4 @@ function logInDetails (state = defaultState, action) {
   }
 }
 
-export default logInDetails
+export default loginDetails

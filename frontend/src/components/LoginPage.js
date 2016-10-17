@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import TitleText from './TitleText'
 import BodyText from './BodyText'
 import IAPTextInput from './IAPTextInput'
@@ -35,7 +35,9 @@ class LoginPage extends React.Component {
               onChange={(e) => this.handleOnChange(e, 'password')}
             />
           </label>
-          <IAPButton>Login</IAPButton>
+          <IAPButton onClick={(e) => {
+            return this.props.logIn(this.props.loginDetails)
+          }}>Login</IAPButton>
         </form>
       </section>
     )
@@ -43,7 +45,12 @@ class LoginPage extends React.Component {
 }
 
 LoginPage.propTypes = {
-
+  logIn: PropTypes.func.isRequired,
+  loginDetails: PropTypes.shape({
+    password: PropTypes.string,
+    username: PropTypes.string
+  }).isRequired,
+  updateLoginDetails: PropTypes.func.isRequired
 }
 
 export default LoginPage

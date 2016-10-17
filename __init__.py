@@ -150,12 +150,12 @@ def deletePic(hashIn):
 @app.route("/login", methods=['POST'])
 def login():
 	data = request.get_json()
-	userName = data['userName'].lower()
+	username = data['username'].lower()
 	password = data['password']
 	serverFacade = ServerFacade()
 	
-	if(serverFacade.login(userName, password)):
-		session['value'] = userName.lower()
+	if(serverFacade.login(username, password)):
+		session['value'] = username.lower()
 		return json.dumps({'status':"success"})
 	else:
 		return json.dumps({'status':"notAuth"})
@@ -166,9 +166,9 @@ def register():
 	data = request.get_json()
 	serverFacade = ServerFacade()
 	#check is pass and passValidate are the same, double check
-	if(serverFacade.register(data["userName"], data["password"], data["email"], data["fName"])):
+	if(serverFacade.register(data["username"], data["password"], data["email"], data["fName"])):
 		#create folder in userFiles named the usernames
-		session['value'] = data["userName"].lower()	
+		session['value'] = data["username"].lower()	
 		return json.dumps({'status':'success'})
 	else:
 		return json.dumps({'status':'error', 'data':'User name or email already registered'})	

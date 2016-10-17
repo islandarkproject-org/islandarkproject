@@ -25,8 +25,8 @@ export function fetchTeamData () {
 export function logIn (details) {
   let d = new Promise((resolve, reject) => {
     let req = new XMLHttpRequest()
-    req.open('POST', './login?details=' + details)
-    req.send()
+    req.open('POST', './login', true)
+    req.send(JSON.stringify(details))
 
     req.onload = function () {
       if (this.status >= 200 && this.status < 300) {
@@ -36,8 +36,6 @@ export function logIn (details) {
       }
     }
   })
-  .then((response) => console.log(response))
-  .catch((error) => console.log(error))
 
   return d
 }
