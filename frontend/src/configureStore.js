@@ -8,13 +8,15 @@ function allowPromiseDispatch (store) {
   return (action) => {
     if (typeof action.then === 'function') {
       return action.then(defaultDispatch)
-    } else {
-      return defaultDispatch(action)
     }
+    return defaultDispatch(action)
   }
 }
 
-const store = createStore(iapApp)
-store.dispatch = allowPromiseDispatch(store)
+function configureStore () {
+	const store = createStore(iapApp)
+	store.dispatch = allowPromiseDispatch(store)
+	return store
+}
 
-export default store
+export default configureStore

@@ -12,7 +12,8 @@ import LoginPageContainer from './containers/LoginPageContainer'
 import TeamPage from './components/TeamPage'
 import UploaderContainer from './containers/UploaderContainer'
 
-import store from './configureStore'
+import configureStore from './configureStore'
+const store = configureStore()
 
 const rootEl = document.getElementById('root')
 
