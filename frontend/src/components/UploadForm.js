@@ -4,8 +4,8 @@ import HelperText from './HelperText'
 import IAPTextInput from './IAPTextInput'
 import IAPTextArea from './IAPTextArea'
 import IAPCheckBox from './IAPCheckBox'
+import IAPDateInput from './IAPDateInput'
 import LocationEnterContainer from '../containers/LocationEnterContainer'
-
 
 class UploadForm extends React.Component {
   constructor () {
@@ -51,6 +51,11 @@ class UploadForm extends React.Component {
           <HelperText>(e.g. the location where a photo was taken)</HelperText>
           <LocationEnterContainer />
         </label>
+        <label>
+          <BodyText>Whhen was this upload produced?</BodyText>
+          <HelperText>(e.g. when was a photo taken?)</HelperText>
+          <IAPDateInput onChange={(e) => this.handleOnChange(e, 'originalDate')} />
+        </label>
       </form>
     )
   }
@@ -67,7 +72,8 @@ UploadForm.propTypes = {
       lat: PropTypes.oneOfType([PropTypes.number, undefined]),
       lng: PropTypes.oneOfType([PropTypes.number, undefined])
     })
-  ]).isRequired
+  ]).isRequired,
+  originalDate: PropTypes.string
 }
 
 export default UploadForm

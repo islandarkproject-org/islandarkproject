@@ -11,7 +11,8 @@ function media (state = {}, action) {
           description: '',
           tags: [],
           isPrivate: false,
-          location: ''
+          location: '',
+          originalDate: ''
         }
       }
     case UPDATE_UPLOAD_INFO:
