@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react'
-import Navigation from './Navigation'
+import NavigationContainer from '../containers/NavigationContainer'
 import LandingPage from './LandingPage'
-import Footer from './Footer'
+import FooterContainer from '../containers/FooterContainer'
 import Uploader from './Uploader'
 
 class App extends React.Component {
   render () {
     return (
       <div className='App'>
-        <Navigation />
+        <NavigationContainer />
         {this.props.children}
-        <Footer />
+        <FooterContainer />
       </div>
     )
   }

@@ -43,3 +43,21 @@ export function logIn (details) {
 
   return d
 }
+
+export function logOut () {
+  let d = new Promise((resolve, reject) => {
+    let req = new XMLHttpRequest()
+    req.open('POST', './logout', true)
+    req.send()
+
+    req.onload = function () {
+      if (this.status >= 200 && this.status < 300) {
+        resolve(this.response)
+      } else {
+        reject(this.statusText)
+      }
+    }
+  })
+
+  return d
+}

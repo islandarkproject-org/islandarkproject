@@ -41,6 +41,10 @@ export function logIn (details) {
   return api.logIn(details).then((response) => setIsUserLoggedIn(true), (error) => setIsUserLoggedIn(false))
 }
 
+export function logOut () {
+  return api.logOut().then((response) => setIsUserLoggedIn(false), (error) => console.log(error))
+}
+
 export function uploadMedia (media) {
   return {
     type: UPLOAD_MEDIA,

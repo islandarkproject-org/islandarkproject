@@ -5,6 +5,22 @@ import { Link } from 'react-router'
 
 class Footer extends React.Component {
   render () {
+    let logInDisplay = this.props.userIsLoggedIn ?
+      null
+        :
+      <li>
+        <Link to='login'>
+          Log In
+        </Link>
+      </li>
+
+    let signUpDisplay = this.props.userIsLoggedIn ?
+      null
+        :
+      <li>
+        Sign Up
+      </li>
+
     return (
       <footer className='Footer'>
         <div className='brand'>
@@ -30,12 +46,8 @@ class Footer extends React.Component {
             </Link>
           </li>
           <li>Contact</li>
-          <li>
-            <Link to='login'>
-              Log In
-            </Link>
-          </li>
-          <li>Sign Up</li>
+          {logInDisplay}
+          {signUpDisplay}
         </ul>
       </footer>
     )
