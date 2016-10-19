@@ -24,9 +24,12 @@ export function fetchTeamData () {
 
 export function logIn (details) {
   let d = new Promise((resolve, reject) => {
+    // Convert details to appropriate format for API
+    details = JSON.stringify(details)
     let req = new XMLHttpRequest()
     req.open('POST', './login', true)
-    req.send(JSON.stringify(details))
+    req.setRequestHeader('Content-Type', 'application/json')
+    req.send(details)
 
     req.onload = function () {
       if (this.status >= 200 && this.status < 300) {
