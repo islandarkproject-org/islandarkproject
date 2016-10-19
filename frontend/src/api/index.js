@@ -26,6 +26,7 @@ export function logIn (details) {
   let d = new Promise((resolve, reject) => {
     // Convert details to appropriate format for API
     details = JSON.stringify(details)
+    
     let req = new XMLHttpRequest()
     req.open('POST', './login', true)
     req.setRequestHeader('Content-Type', 'application/json')

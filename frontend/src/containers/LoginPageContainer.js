@@ -4,6 +4,7 @@ import LoginPage from '../components/LoginPage'
 
 const mapStateToProps = (state) => {
   return {
+  	userIsLoggedIn: state.userIsLoggedIn,
     loginDetails: state.loginDetails
   }
 }
