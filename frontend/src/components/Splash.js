@@ -8,7 +8,7 @@ class Splash extends React.Component {
 
   render () {
     let backgroundImgStyle = {
-      background: `url(${this.props.img}) no-repeat center center fixed`,
+      background: this.props.img ? `url(${this.props.img}) no-repeat center center fixed` : this.props.color,
       backgroundSize: 'cover',
     }
 
