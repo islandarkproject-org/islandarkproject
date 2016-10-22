@@ -41,15 +41,15 @@ class TeamPage extends React.Component {
       {
         'img': 'https://s3.amazonaws.com/islandarkproject/team-photos/emile-paffard-wray-square.jpg',
         'name': 'Emile Paffard-Wray',
-        'bio': 'Emile Paffard-Wray is a Junior Web Developer from the UK. He graduated with a BSc in Physical Chemistry, Maths and Statistics from University College London. He\'s currently putting in his 10,000 hours as a developer and is elsewhere interested in artificial intelligence, learning technologies and mixed martial arts.'
+        'bio': 'Emile Paffard-Wray is a Junior Web Developer from the UK. He graduated with a BSc in Physical Chemistry, Maths and Statistics from University College London. He\'s currently putting in his 10,000 hours as a developer and is elsewhere interested in artificial intelligence and mixed martial arts.'
       },
       {
-        'img': '',
+        'img': 'https://s3.amazonaws.com/islandarkproject/team-photos/ryan-o-donnell-square.png',
         'name': 'Ryan O\'Donnell',
         'bio': 'Ryan O\'Donnell is located in Charleston, SC and  a graduate of The Pennsylvania State University with a B.S. in Security and Risk Analysis and 5 years industry experience. Currently, he is employed by an industry leading Cyber Security vendor specializing in protecting customer\'s data and applications and also has a background in IT Audit and Networking. Ryan hopes he can make a difference by donating his time to a great cause and help spread IT Security awareness. Current hobbies include:playing golf, hanging at home with his dog Charlie and going to the beach.'
       },
       {
-        'img': '',
+        'img': 'https://s3.amazonaws.com/islandarkproject/team-photos/kevin-king-square.png',
         'name': 'Kevin King',
         'bio': 'Kevin King came across Island Ark Project while searching for nonprofit causes to support on Idealist. As a Millennial, I am passionate about providing my services in the form of marketing knowledge to those causes I truly believe are making a difference in the world today. Island Ark Project is just one such nonprofit cause I support by managing the social media accounts. Are you making your mark on the world?'
       }
