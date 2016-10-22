@@ -1,0 +1,23 @@
+.RegisterPage {
+	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+
+  form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    label {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .IAPButton {
+      margin-top: 40px;
+    }
+  }
+}

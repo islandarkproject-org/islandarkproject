@@ -9,6 +9,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import App from './components/App'
 import LandingPage from './components/LandingPage'
 import LoginPageContainer from './containers/LoginPageContainer'
+import RegisterPageContainer from './containers/RegisterPageContainer'
 import TeamPage from './components/TeamPage'
 import UploaderContainer from './containers/UploaderContainer'
 
@@ -21,7 +22,8 @@ render(
   <Provider store={store}>
     <Router history={hashHistory} onUpdate={() => window.scrollTo(0, 0)}>
       <Route path='/' component={App}>
-        <Route path='/login' component={LoginPageContainer} />
+        <Route path='login' component={LoginPageContainer} />
+        <Route path='register' component={RegisterPageContainer} />
         <Route path='team' component={TeamPage} />
         <Route path='upload' component={UploaderContainer} />
         <IndexRoute component={LandingPage} />

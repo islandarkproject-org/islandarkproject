@@ -5,6 +5,7 @@ import * as api from '../api'
  */
 
 export const UPDATE_LOGIN_DETAILS = 'UPDATE_LOGIN_DETAILS'
+export const UPDATE_REGISTER_DETAILS = 'UPDATE_REGISTER_DETAILS'
 export const REGISTER = 'REGISTER'
 export const LOG_IN  = 'LOG_IN'
 export const LOG_OUT = 'LOG_OUT'
@@ -58,6 +59,18 @@ export function updateUploadInfo (field, value) {
     field,
     value
   }
+}
+
+export function updateRegisterDetails (field, value) {
+  return {
+    type: UPDATE_REGISTER_DETAILS,
+    field,
+    value
+  }
+}
+
+export function register (details) {
+  return api.register(details).then((response) => setIsUserLoggedIn(true), (error) => console.log(error))
 }
 
 export function setUserLocation (location) {

@@ -14,11 +14,13 @@ class Footer extends React.Component {
         </Link>
       </li>
 
-    let signUpDisplay = this.props.userIsLoggedIn ?
+    let registerDisplay = this.props.userIsLoggedIn ?
       null
         :
       <li>
-        Sign Up
+        <Link to='register'>
+          Register
+        </Link>
       </li>
 
     return (
@@ -47,7 +49,7 @@ class Footer extends React.Component {
           </li>
           <li>Contact</li>
           {logInDisplay}
-          {signUpDisplay}
+          {registerDisplay}
         </ul>
       </footer>
     )
