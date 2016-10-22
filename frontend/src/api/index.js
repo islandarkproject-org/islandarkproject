@@ -1,3 +1,5 @@
+import { hashHistory } from 'react-router'
+
 export function getJSON (url) {
   let d = new Promise((resolve, reject) => {
     let req = new XMLHttpRequest()
@@ -41,6 +43,9 @@ export function logIn (details) {
     }
   })
 
+  // Re-route to home page on success
+  d.then(() => hashHistory.push('')).catch(() => 1)
+
   return d
 }
 
@@ -58,6 +63,9 @@ export function logOut () {
       }
     }
   })
+
+  // Re-route to upload page on success
+  d.then(() => hashHistory.push('upload')).catch(() => 1)
 
   return d
 }
