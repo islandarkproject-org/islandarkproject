@@ -5,7 +5,7 @@ const defaultState = {
 	password: '',
 	confirmPassword: '',
 	email: '',
-	name: ''
+	fName: ''
 }
 
 function registerDetails (state = defaultState, action) {

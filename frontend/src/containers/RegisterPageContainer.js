@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import RegisterPage from '../components/RegisterPage'
-import { updateRegisterDetails } from '../actions'
+import { register, updateRegisterDetails } from '../actions'
 
 const mapStateToProps = (state) => {
 	return {
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
+		register: (details) => dispatch(register(details)),
 		updateRegisterDetails: (field, value) => dispatch(updateRegisterDetails(field, value))
 	}
 }

@@ -54,10 +54,14 @@ class RegisterPage extends React.Component {
 						<BodyText>Name</BodyText>
 						<IAPTextInput
 							placeholder='John Smith'
-							onChange={(e) => this.handleOnChange(e, 'name')}
+							onChange={(e) => this.handleOnChange(e, 'fName')}
 						/>
 					</label>
-					<IAPButton onClick={(e) => e}>Register</IAPButton>
+					<IAPButton
+						onClick={(e) => this.props.register(this.props.registerDetails)}
+					>
+						Register
+					</IAPButton>
 				</form>
 			</section>
 		)
