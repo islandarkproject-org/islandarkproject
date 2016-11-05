@@ -10,7 +10,8 @@
     "build:prod": "webpack --env.prod",
     "validate-webpack": "npm-run-all --parallel validate-webpack:*",
     "validate-webpack:dev": "webpack-validator webpack.config.js --env.dev",
-    "validate-webpack:prod": "webpack-validator webpack.config.js --env.prod"
+    "validate-webpack:prod": "webpack-validator webpack.config.js --env.prod",
+    "deploy-frontend:test": "scp './static/bundle.js' bmac@islandarkproject.org:/var/www/test/Files/Files/webResources/"
   },
   "repository": {
     "type": "git",
