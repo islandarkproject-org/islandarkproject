@@ -55,6 +55,8 @@ class Uploader extends React.Component {
                               {...info}
                             /> : null
 
+    let submitButton = info ? <IAPButton onClick={this.upload}>Submit</IAPButton> : null
+
     return (
       <section className='Uploader'>
         <TitleText>Upload Media</TitleText>
@@ -69,7 +71,7 @@ class Uploader extends React.Component {
           </Dropzone>
           {uploadForm}
         </div>
-        <IAPButton onClick={this.upload}>Submit</IAPButton>
+        {submitButton}
       </section>
     )
   }
