@@ -11,6 +11,7 @@ class Uploader extends React.Component {
   constructor () {
     super()
     this.uploadMedia = this.uploadMedia.bind(this)
+    this.upload = this.upload.bind(this)
   }
 
   componentDidUpdate (prevProps) {
@@ -22,6 +23,10 @@ class Uploader extends React.Component {
 
   uploadMedia (media) {
     return this.props.uploadMedia(media)
+  }
+
+  upload () {
+    return this.props.upload(this.props.uploadedMedia)
   }
 
   render () {
@@ -64,6 +69,7 @@ class Uploader extends React.Component {
           </Dropzone>
           {uploadForm}
         </div>
+        <IAPButton onClick={this.upload}>Submit</IAPButton>
       </section>
     )
   }

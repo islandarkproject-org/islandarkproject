@@ -1,4 +1,4 @@
-import { UPLOAD_MEDIA, UPDATE_UPLOAD_INFO } from '../actions'
+import { UPLOAD_MEDIA, UPDATE_UPLOAD_INFO, CLEAR_MEDIA } from '../actions'
 import { trimFileExtension } from '../helpers'
 
 function media (state = {}, action) {
@@ -26,6 +26,8 @@ function media (state = {}, action) {
           }
         )
       }
+    case CLEAR_MEDIA:
+      return {}
     default:
       return state
   }

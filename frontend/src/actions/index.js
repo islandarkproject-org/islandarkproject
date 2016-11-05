@@ -13,6 +13,7 @@ export const USER_LOGGED_IN = 'USER_LOGGED_IN'
 export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT'
 export const UPLOAD_MEDIA = 'UPLOAD_MEDIA'
 export const UPDATE_UPLOAD_INFO = 'UPDATE_UPLOAD_INFO'
+export const CLEAR_MEDIA = 'CLEAR_MEDIA'
 export const SET_USER_LOCATION = 'SET_USER_LOCATION'
 
 /*
@@ -44,6 +45,16 @@ export function logIn (details) {
 
 export function logOut () {
   return api.logOut().then((response) => setIsUserLoggedIn(false), (error) => console.log(error))
+}
+
+export function upload (media) {
+  return api.upload(media).then(clearMedia, (error) => console.log(media))
+}
+
+export function clearMedia () {
+  return {
+    type: CLEAR_MEDIA
+  }
 }
 
 export function uploadMedia (media) {

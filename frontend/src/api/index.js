@@ -1,4 +1,5 @@
 import { hashHistory } from 'react-router'
+import request from 'superagent'
 
 export function getJSON (url) {
   let d = new Promise((resolve, reject) => {
@@ -93,4 +94,12 @@ export function register (details) {
   d.then(() => hashHistory.push('')).catch(() => 1)
 
   return d
+}
+
+export function upload (media) {
+  // Send the file first, then the info separately
+  return request
+    .post('/uploadFile')
+    .type('multipart/form-data')
+    .send(media.files)
 }
