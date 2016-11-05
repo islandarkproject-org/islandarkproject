@@ -40,7 +40,11 @@ class Footer extends React.Component {
               Upload
             </Link>
           </li>
-          <li>View</li>
+          <li>
+            <Link to='view'>
+              View
+            </Link>
+          </li>
           <li>About</li>
           <li>
             <Link to='team'>

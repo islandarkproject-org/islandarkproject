@@ -40,9 +40,11 @@ class Navigation extends React.Component {
             </Link>
           </li>
           <li>
-            <button>
-              <IoImages size={25} /> <TitleText>View</TitleText>
-            </button>
+            <Link to='view'>
+              <button>
+                <IoImages size={25} /> <TitleText>View</TitleText>
+              </button>
+            </Link>
           </li>
           <li>
             {logInOrOut}

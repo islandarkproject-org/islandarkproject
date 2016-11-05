@@ -12,6 +12,7 @@ import LoginPageContainer from './containers/LoginPageContainer'
 import RegisterPageContainer from './containers/RegisterPageContainer'
 import TeamPage from './components/TeamPage'
 import UploaderContainer from './containers/UploaderContainer'
+import Viewer from './components/Viewer'
 
 import configureStore from './configureStore'
 const store = configureStore()
@@ -26,6 +27,7 @@ render(
         <Route path='register' component={RegisterPageContainer} />
         <Route path='team' component={TeamPage} />
         <Route path='upload' component={UploaderContainer} />
+        <Route path='view' component={Viewer} />
         <IndexRoute component={LandingPage} />
       </Route>
     </Router>
