@@ -74,7 +74,7 @@ RegisterPage.propTypes = {
 		password: PropTypes.string.isRequired,
 		confirmPassword: PropTypes.string.isRequired,
 		email: PropTypes.string.isRequired,
-		name: PropTypes.string.isRequired
+		fName: PropTypes.string.isRequired
 	}).isRequired,
 	updateRegisterDetails: PropTypes.func.isRequired
 }
