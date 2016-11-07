@@ -103,3 +103,11 @@ export function upload (media) {
     .type('multipart/form-data')
     .send(media.files)
 }
+
+export function loadFiles () {
+  return request
+    .get('/getData')
+    .type('application/json')
+    .send()
+    .then(response => console.log(response))
+}
