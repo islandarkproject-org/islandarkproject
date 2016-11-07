@@ -4,13 +4,15 @@ import userLocation from './userLocation'
 import userIsLoggedIn from './userIsLoggedIn'
 import loginDetails from './loginDetails'
 import registerDetails from './registerDetails'
+import files from './files'
 
 const iapApp = combineReducers({
   media,
   userLocation,
   userIsLoggedIn,
   loginDetails,
-  registerDetails
+  registerDetails,
+  files
 })
 
 export default iapApp

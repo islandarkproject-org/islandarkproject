@@ -15,6 +15,7 @@ export const UPLOAD_MEDIA = 'UPLOAD_MEDIA'
 export const UPDATE_UPLOAD_INFO = 'UPDATE_UPLOAD_INFO'
 export const CLEAR_MEDIA = 'CLEAR_MEDIA'
 export const SET_USER_LOCATION = 'SET_USER_LOCATION'
+export const LOAD_ALL_FILES = 'LOAD_ALL_FILES'
 
 /*
  * Other Constants
@@ -88,5 +89,17 @@ export function setUserLocation (location) {
   return {
     type: SET_USER_LOCATION,
     location
+  }
+}
+
+export function fetchFiles () {
+  return api.fetchFiles()
+  // .then(response => loadAllFiles(response.files), error => console.log(files))
+}
+
+export function loadAllFiles (files) {
+  return {
+    type: LOAD_ALL_FILES,
+    files
   }
 }

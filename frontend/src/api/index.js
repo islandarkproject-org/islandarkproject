@@ -104,10 +104,10 @@ export function upload (media) {
     .send(media.files)
 }
 
-export function loadFiles () {
+export function fetchFiles () {
   return request
     .get('/getData')
     .type('application/json')
     .send()
-    .then(response => console.log(response))
+    .end((error, response) => console.log(response))
 }
