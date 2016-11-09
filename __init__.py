@@ -242,9 +242,16 @@ def test():
 	#myServerFacade = ServerFacade()
 	return json.dumps(testDB())
 
+"""
+	New API - the code below is intended to replace the original backend code above with the
+	intention of being simpler, more consistent and easier to understand.
+"""
+
+@app.route("/api/test", methods=['GET'])
+def api_test():
+	return jsonify(message='Hello, world!')
 
 if __name__ == "__main__":
 	first = rootFolder + 'server.crt'
 	second = rootFolder + 'server.key'
 	app.run('0.0.0.0',debug=True)#, ssl_context=(first,second))
-

@@ -106,8 +106,9 @@ export function upload (media) {
 
 export function fetchFiles () {
   return request
-    .get('/getData')
-    .type('application/json')
-    .send()
-    .end((error, response) => console.log(response))
+    .get('/api/test')
+    .set('Content-Type', 'application/json')
+    .then((response) => console.log(response))
 }
+
+fetchFiles().then(response => console.log(response))
