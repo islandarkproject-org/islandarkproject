@@ -1,12 +1,7 @@
 import React, { PropTypes } from 'react'
 
-class HelperText extends React.Component {
-  render () {
-    return (
-      <p className='HelperText'>{this.props.children}</p>
-    )
-  }
-}
+const HelperText = ({children}) =>
+  <p className='HelperText'>{children}</p>
 
 HelperText.propTypes = {
   children: PropTypes.string.isRequired

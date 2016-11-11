@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react'
 
-class IAPPasswordInput extends React.Component {
-  render () {
-    return (
-      <input className='IAPPasswordInput' type='password' placeholder={this.props.placeholder} onChange={this.props.onChange} />
-    )
-  }
-}
-
+const IAPPasswordInput = ({placeholder, onChange}) =>
+  <input
+  	className='IAPPasswordInput'
+  	type='password'
+  	placeholder={placeholder}
+  	onChange={onChange} />
+      	
 IAPPasswordInput.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func.isRequired

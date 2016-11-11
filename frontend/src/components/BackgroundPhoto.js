@@ -1,23 +1,16 @@
 import React, { PropTypes } from 'react'
 
-class BackgroundPhoto extends React.Component {
-  render () {
-    let BackgroundPhotoStyle = {
-      opacity: this.props.opacity,
-      width: this.props.photoWidth
-    }
-
-    return (
-      <div className='BackgroundPhoto'>
-        <img src={this.props.photo} style={BackgroundPhotoStyle} />
-      </div>
-    )
-  }
-}
+const BackgroundPhoto = ({photo, opacity, photoWidth}) =>
+  <div className='BackgroundPhoto'>
+    <img
+      src={photo}
+      style={{opacity, width: photoWidth}} />
+  </div>
 
 BackgroundPhoto.PropTypes = {
-  photo: PropTypes.string.isRequired,
-  padding: PropTypes.string.isRequired
+  opacity: PropTypes.string,
+  photoWidth: PropTypes.string,
+  photo: PropTypes.string.isRequired
 }
 
 export default BackgroundPhoto

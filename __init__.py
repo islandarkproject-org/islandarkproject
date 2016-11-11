@@ -248,7 +248,7 @@ def test():
 """
 
 @app.route("/api/test", methods=['GET'])
-def api_test():
+def get_artifacts:
 	return jsonify(message='Hello, world!')
 
 if __name__ == "__main__":

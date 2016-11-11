@@ -1,19 +1,13 @@
 import React, { PropTypes } from 'react'
 
-class IAPEmailInput extends React.Component {
-	render () {
-    return (
-      <input
-        className='IAPEmailInput'
-        type='email'
-        placeholder={this.props.placeholder}
-        defaultValue={this.props.value}
-        onChange={this.props.onChange}
-        onFocus={this.props.onFocus}
-      />
-    )
-  }
-}
+const IAPEmailInput = ({placeholder, value, onChange, onFocus}) =>
+  <input
+    className='IAPEmailInput'
+    type='email'
+    placeholder={placeholder}
+    defaultValue={value}
+    onChange={onChange}
+    onFocus={onFocus} />
 
 IAPEmailInput.propTypes = {
   placeholder: PropTypes.string,

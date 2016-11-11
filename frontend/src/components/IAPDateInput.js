@@ -1,18 +1,12 @@
 import React, { PropTypes } from 'react'
 
-class IAPDateInput extends React.Component {
-	render () {
-		return (
-			<input
-				className='IAPDateInput'
-				type='date'
-				defaultValue={this.props.value}
-				onChange={this.props.onChange}
-				onFocus={this.props.onFocus}
-			/>
-		)
-	}
-}
+const IAPDateInput = ({value, onChange, onFocus}) =>
+	<input
+		className='IAPDateInput'
+		type='date'
+		defaultValue={value}
+		onChange={onChange}
+		onFocus={onFocus} />
 
 IAPDateInput.propTypes = {
 	value: PropTypes.string,

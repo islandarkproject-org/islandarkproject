@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react'
 
-class IAPCheckBox extends React.Component {
-  render () {
-    return (
-      <input className='IAPCheckBox' type='checkbox' checked={this.props.checked} onClick={this.props.onClick} />
-    )
-  }
-}
+const IAPCheckBox = ({checked, onClick}) =>
+  <input
+  	className='IAPCheckBox'
+  	type='checkbox'
+  	checked={checked}
+  	onClick={onClick} />
 
 IAPCheckBox.propTypes = {
   checked: PropTypes.bool,

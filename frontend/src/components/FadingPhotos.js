@@ -1,15 +1,23 @@
 import React, { PropTypes } from 'react'
 
 class FadingPhotos extends React.Component {
-  render () {
-    let PhotoStyle = (photoNum, total) => (
-      {
-        opacity: 1 - (1 / total) * photoNum,
-        width: (100 / total) + '%'
-      }
-    )
+  photoStyle (photoNum, repetitions) {
+    return {
+      opacity: 1 - (1 / repetitions) * photoNum,
+      width: `${100 / repetitions}%`
+    }
+  }
 
-    let photos = this.props.photos.map((photo, i, photos) => <img key={i} src={photo} style={PhotoStyle(i, photos.length)} />)
+  render () {
+    const photos = []
+    for (let i = 0; i < this.props.repetitions; i++) {
+      photos.push(
+        <img
+          key={i}
+          src={this.props.photo}
+          style={this.photoStyle(i, this.props.repetitions)} />
+      )
+    }
 
     return (
       <div className='FadingPhotos'>
@@ -20,7 +28,7 @@ class FadingPhotos extends React.Component {
 }
 
 FadingPhotos.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.string).isRequired
+  photo: PropTypes.string.isRequired
 }
 
 export default FadingPhotos

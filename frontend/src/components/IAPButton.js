@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react'
 
-class IAPButton extends React.Component {
-  render () {
-    return (
-      <button className='IAPButton' type='button' onClick={this.props.onClick}>{this.props.children}</button>
-    )
-  }
-}
+const IAPButton = ({onClick, children}) =>
+  <button
+  	className='IAPButton'
+  	type='button'
+  	onClick={onClick}>{children}</button>
 
 IAPButton.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
+  onClick: PropTypes.func
 }
 
 export default IAPButton
