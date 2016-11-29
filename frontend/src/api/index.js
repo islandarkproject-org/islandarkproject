@@ -98,10 +98,18 @@ export function register (details) {
 
 export function upload (media) {
   // Send the file first, then the info separately
+  let formData = new FormData()
+  media.files.forEach((file) => formData.append('files', file))
   return request
-    .post('/uploadFile')
-    .type('multipart/form-data')
-    .send(media.files)
+    .post('/api/upload/files')
+    .send(formData)
+    .then(response => {
+      response = JSON.parse(response)
+      if (response.status === 'success') {
+        media.info.url = response.urls[0]
+      }
+    })
+    .catch(error => console.log(error))
 }
 
 export function fetchFiles () {
@@ -110,5 +118,3 @@ export function fetchFiles () {
     .set('Content-Type', 'application/json')
     .then((response) => console.log(response))
 }
-
-fetchFiles().then(response => console.log(response))

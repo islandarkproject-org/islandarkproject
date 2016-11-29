@@ -6,7 +6,22 @@ import json
 from werkzeug import secure_filename
 from PIL import Image
 import glob
+import uuid
+import tempfile
 
+# S3
+import boto3
+s3Resource = boto3.resource('s3')
+s3Client = boto3.client('s3')
+
+# Get the service resource
+sqs = boto3.resource('sqs')
+
+# Get the bucket for island ark project
+iapBucket = s3Resource.Bucket('islandarkproject')
+
+# Create the queue. This returns an SQS.Queue instance
+queue = sqs.create_queue(QueueName='test', Attributes={'DelaySeconds': '1'})
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -247,9 +262,45 @@ def test():
 	intention of being simpler, more consistent and easier to understand.
 """
 
-@app.route("/api/test", methods=['GET'])
+# TODO: The below needs more tests and control flow, we are assuming everything proceeds as it should
+@app.route("/api/upload/files", methods=['POST'])
+def upload_file():
+    # Check for files
+    if 'files' not in request.files:
+        return jsonify(status='No files', error='Please attach a file to upload')
+    
+    # URLs of file in s3 bucket which will be stored in DB
+    fileUrls = []
+
+    # Upload files
+    files = request.files.getlist('files')
+    for file in files:
+        # produce secure filename with random string at the start
+        filename = str(uuid.uuid4().hex) + "-" + secure_filename(file.filename)
+        fileUrl = 'https://s3.amazonaws.com/729849-artifacts/' + filename
+        fileUrls.append(fileUrl)
+
+        # Save the uploaded file temproarily to upload it to S3
+        tmp = tempfile.NamedTemporaryFile(delete=True)
+        tmp.write(file.read())
+        s3Client.upload_file(tmp.name, '729849-artifacts', filename)
+        tmp.close()
+        
+    # Return URL of uploaded files
+    return jsonify(status='success', urls=fileUrls)
+
+@app.route("/api/upload/info", methods=['POST'])
+def save_file_info():
+    info = request.get_json()
+    return jsonify(status='success')
+
+@app.route("/api/artifacts", methods=['GET'])
 def api_test():
 	return jsonify(message='Hello, world!')
+
+@app.route("/api/artifacts/<id>", methods=['GET'])
+def get_artifact():
+    return jsonify(message='Do something')
 
 if __name__ == "__main__":
 	first = rootFolder + 'server.crt'
