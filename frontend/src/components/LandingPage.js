@@ -7,7 +7,6 @@ import DonatePrompt from './DonatePrompt'
 const LandingPage = () =>
   <main className='LandingPage'>
     <Splash
-      img='https://hd.unsplash.com/photo-1446426156356-92b664d86b77'
       title='Island Ark Project'
       tagline='Digital Preservation of Island Culture'
       callToAction='Get Started' />

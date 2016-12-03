@@ -1,7 +1,6 @@
 import React from 'react'
 import TitleText from './TitleText'
 import BodyText from './BodyText'
-import BackgroundPhoto from './BackgroundPhoto'
 
 const How = () =>
   <section className='How'>
@@ -17,10 +16,6 @@ const How = () =>
         <BodyText>Important cultural practices are at risk of disappearing forever. To solve this problem, the Island Ark Project is a kind of living time capsule where anyone can upload, discuss, and access culture regardless of where they live. Migrating communities and future generations can continue to access information about immaterial heritage even if individual members lose their physical connection.</BodyText>
       </div>
     </section>
-    <BackgroundPhoto
-      photo='https://upload.wikimedia.org/wikipedia/commons/7/77/Vanuatu-humans-of-vanuatu-2.jpg'
-      photoWidth='50%'
-      opacity='0.2' />
   </section>
 
 export default How
