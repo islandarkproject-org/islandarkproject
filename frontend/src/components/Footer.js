@@ -24,10 +24,6 @@ const Footer = ({userIsLoggedIn}) => {
 
   return (
     <footer className='Footer'>
-      <div className='brand'>
-        <Logo />
-        <BodyText>Island Ark Project</BodyText>
-      </div>
       <ul>
         <li>
           <Link to='/'>
