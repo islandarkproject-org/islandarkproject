@@ -42,7 +42,7 @@ class Uploader extends React.Component {
           moreFiles = uploadedMedia.files.length - 1
 
       if (/(image)/.test(firstFile.type)) {
-        preview = <ImgPreview src={firstFile.preview} name={firstFile.name} moreFiles={moreFiles} height='50%'/>
+        preview = <ImgPreview src={firstFile.preview} name={firstFile.name} moreFiles={moreFiles} />
       } else {
         preview = <h4 className='preview'>{firstFile.name} (+{moreFiles})</h4>
       }

@@ -6,11 +6,10 @@ const ImgPreview = ({src, name, height, moreFiles}) => {
         <img
           className='img'
           src={src}
-          alt={name}
-          height={height} />
+          alt={name} />
           :
         <h4 className='failure'>Something Went Wrong, Please Try Again</h4>
-  
+
   const moreFilesIndicator = moreFiles > 0 ?
         <OverlayIndicator>{`+ ${moreFiles}`}</OverlayIndicator>
           :
