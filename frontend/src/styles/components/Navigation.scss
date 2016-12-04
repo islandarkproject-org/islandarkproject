@@ -20,7 +20,6 @@
         border: none;
         font-size: 12px;
         font-weight: 700;
-        letter-spacing: 2px;
         outline: none;
         padding: 5px;
         text-transform: uppercase;
@@ -28,13 +27,15 @@
 
         .TitleText {
           font-size: 12px;
+          font-weight: bold;
+          letter-spacing: 0px;
           padding: 5px;
         }
 
         &:hover {
           background: $primary-color;
           color: $secondary-color;
-          
+
           .TitleText {
             color: $secondary-color;
           }

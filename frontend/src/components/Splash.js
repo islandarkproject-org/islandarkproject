@@ -4,31 +4,29 @@ import BodyText from './BodyText'
 import IAPButton from './IAPButton'
 import { Link } from 'react-router'
 
-class Splash extends React.Component {
-
-  render () {
-    let backgroundImgStyle = {
-      background: this.props.img ? `url(${this.props.img}) no-repeat center center fixed` : this.props.color,
-      backgroundSize: 'cover',
-    }
-
-    return (
-      <div className='Splash' style={backgroundImgStyle}>
-        <TitleText>{this.props.title}</TitleText>
-        <BodyText extraClasses={['tagline']}>{this.props.tagline}</BodyText>
-        <Link to='/upload'>
-          <IAPButton>{this.props.callToAction}</IAPButton>
-        </Link>
-      </div>
-    )
+const Splash = ({img, color, title, tagline, callToAction}) => {
+  const backgroundImgStyle = {
+    background: img ? `url(${img}) no-repeat center center fixed` : color,
+    backgroundSize: 'cover',
   }
+
+  return (
+    <div className='Splash' style={backgroundImgStyle}>
+      <TitleText>{title}</TitleText>
+      <BodyText extraClasses={['tagline']}>{tagline}</BodyText>
+      <Link to='/upload'>
+        <IAPButton>{callToAction}</IAPButton>
+      </Link>
+    </div>
+  )
 }
 
 Splash.propTypes = {
   callToAction: PropTypes.string,
   img: PropTypes.string,
   title: PropTypes.string.isRequired,
-  tagline: PropTypes.string
+  tagline: PropTypes.string,
+  color: PropTypes.string
 }
 
 export default Splash

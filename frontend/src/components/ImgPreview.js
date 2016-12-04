@@ -1,25 +1,26 @@
 import React, { PropTypes } from 'react'
 import OverlayIndicator from './OverlayIndicator'
 
-class ImgPreview extends React.Component {
-  render () {
-    let preview = this.props.src ?
-          <img className='img' src={this.props.src} alt={this.props.name} height={this.props.height} />
-            :
-          <h4 className='failure'>Something Went Wrong, Please Try Again</h4>
-    
-    let moreFilesIndicator = this.props.moreFiles > 0 ?
-          <OverlayIndicator>{`+ ${this.props.moreFiles}`}</OverlayIndicator>
-            :
-          null
+const ImgPreview = ({src, name, height, moreFiles}) => {
+  const preview = src ?
+        <img
+          className='img'
+          src={src}
+          alt={name} />
+          :
+        <h4 className='failure'>Something Went Wrong, Please Try Again</h4>
 
-    return (
-      <div className='ImgPreview'>
-        {moreFilesIndicator}
-        {preview}
-      </div>
-    )
-  }
+  const moreFilesIndicator = moreFiles > 0 ?
+        <OverlayIndicator>{`+ ${moreFiles}`}</OverlayIndicator>
+          :
+        null
+
+  return (
+    <div className='ImgPreview'>
+      {moreFilesIndicator}
+      {preview}
+    </div>
+  )
 }
 
 ImgPreview.propTypes = {

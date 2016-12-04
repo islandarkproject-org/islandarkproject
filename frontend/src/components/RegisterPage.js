@@ -26,40 +26,33 @@ class RegisterPage extends React.Component {
 						<BodyText>Username</BodyText>
 						<IAPTextInput
 							placeholder='Enter a username'
-							onChange={(e) => this.handleOnChange(e, 'username')}
-						/>
+							onChange={(e) => this.handleOnChange(e, 'username')} />
 					</label>
 					<label>
 						<BodyText>Password</BodyText>
 						<IAPPasswordInput
 							placeholder='Enter a password'
-							onChange={(e) => this.handleOnChange(e, 'password')}
-						/>
+							onChange={(e) => this.handleOnChange(e, 'password')} />
 					</label>
 					<label>
 						<BodyText>Confirm Password</BodyText>
 						<IAPPasswordInput
 							placeholder='Confirm your password'
-							onChange={(e) => this.handleOnChange(e, 'confirmPassword')}
-						/>
+							onChange={(e) => this.handleOnChange(e, 'confirmPassword')} />
 					</label>
 					<label>
 						<BodyText>Email Adress</BodyText>
 						<IAPEmailInput
 							placeholder='email@example.com'
-							onChange={(e) => this.handleOnChange(e, 'email')}
-						/>
+							onChange={(e) => this.handleOnChange(e, 'email')} />
 					</label>
 					<label>
 						<BodyText>Name</BodyText>
 						<IAPTextInput
 							placeholder='John Smith'
-							onChange={(e) => this.handleOnChange(e, 'fName')}
-						/>
+							onChange={(e) => this.handleOnChange(e, 'fName')} />
 					</label>
-					<IAPButton
-						onClick={(e) => this.props.register(this.props.registerDetails)}
-					>
+					<IAPButton onClick={(e) => this.props.register(this.props.registerDetails)}>
 						Register
 					</IAPButton>
 				</form>

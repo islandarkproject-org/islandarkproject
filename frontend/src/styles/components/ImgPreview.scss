@@ -1,6 +1,10 @@
 .ImgPreview {
   position: relative;
 
+  img {
+    max-height: 200px;
+  }
+
   .OverlayIndicator {
     bottom: 0;
     right: 0;

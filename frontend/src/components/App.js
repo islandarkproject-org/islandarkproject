@@ -4,17 +4,12 @@ import LandingPage from './LandingPage'
 import FooterContainer from '../containers/FooterContainer'
 import Uploader from './Uploader'
 
-class App extends React.Component {
-  render () {
-    return (
-      <div className='App'>
-        <NavigationContainer />
-        {this.props.children}
-        <FooterContainer />
-      </div>
-    )
-  }
-}
+const App = ({children}) =>
+  <div className='App'>
+    <NavigationContainer />
+    {children}
+    <FooterContainer />
+  </div>
 
 App.propTypes = {
   children: PropTypes.element.isRequired

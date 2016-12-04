@@ -1,15 +1,8 @@
 import React, { PropTypes } from 'react'
 
-class ErrorText extends React.Component {
-	render () {
-		return (
-			<p className='ErrorText'>{this.props.children}</p>
-		)
-	}
-}
+const ErrorText = ({children}) =>
+	<p className='ErrorText'>{children}</p>
 
-ErrorText.propTypes = {
-
-}
+ErrorText.propTypes = {}
 
 export default ErrorText
