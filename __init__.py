@@ -267,7 +267,7 @@ def test():
 def upload_file():
     # Check for files
     if 'files' not in request.files:
-        return jsonify(status='No files', error='Please attach a file to upload')
+        return jsonify(status='failure', error='Please attach a file to upload')
     
     # URLs of file in s3 bucket which will be stored in DB
     fileUrls = []
@@ -290,8 +290,9 @@ def upload_file():
     return jsonify(status='success', urls=fileUrls)
 
 @app.route("/api/upload/info", methods=['POST'])
-def save_file_info():
+def save_artifact_info():
     info = request.get_json()
+
     return jsonify(status='success')
 
 @app.route("/api/artifacts", methods=['GET'])

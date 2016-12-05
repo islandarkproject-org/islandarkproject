@@ -106,7 +106,13 @@ export function upload (media) {
     .then(response => {
       response = JSON.parse(response)
       if (response.status === 'success') {
-        media.info.url = response.urls[0]
+        media.info.fileUrls = response.urls
+        let info = JSON.stringify(media.info)
+        request.post('/api/upload/info')
+          .send(info)
+          .then(response => console.log(JSON.parse(response).status))
+      } else {
+        console.log('Request failed')
       }
     })
     .catch(error => console.log(error))
