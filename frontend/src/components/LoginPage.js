@@ -9,10 +9,15 @@ class LoginPage extends React.Component {
   constructor () {
     super()
     this.handleOnChange = this.handleOnChange.bind(this)
+    this.handleLogin = this.handleLogin.bind(this)
   }
 
   handleOnChange (e, field) {
     return this.props.updateLoginDetails(field, e.target.value)
+  }
+
+  handleLogin (details) {
+    return this.props.logIn(details)
   }
 
   render () {
@@ -25,19 +30,15 @@ class LoginPage extends React.Component {
             <BodyText>Username</BodyText>
             <IAPTextInput
               placeholder='Enter your username'
-              onChange={(e) => this.handleOnChange(e, 'username')}
-            />
+              onChange={(e) => this.handleOnChange(e, 'username')} />
           </label>
           <label>
             <BodyText>Password</BodyText>
             <IAPPasswordInput
               placeholder='Enter your password'
-              onChange={(e) => this.handleOnChange(e, 'password')}
-            />
+              onChange={(e) => this.handleOnChange(e, 'password')} />
           </label>
-          <IAPButton onClick={(e) => {
-            return this.props.logIn(this.props.loginDetails)
-          }}>Login</IAPButton>
+          <IAPButton onClick={(e) => this.handleLogin(this.props.loginDetails)}>Login</IAPButton>
         </form>
       </section>
     )
