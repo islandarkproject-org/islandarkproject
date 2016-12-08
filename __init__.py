@@ -292,7 +292,9 @@ def upload_file():
 @app.route("/api/upload/info", methods=['POST'])
 def save_artifact_info():
     info = request.get_json()
-
+    # Save to db
+    serverFacade = ServerFacade()
+    serverFacade.saveFile(session['value'], info.name, info.fileUrls[0], info.name, info.date, info.description, info.location, info.isPrivate, info.fileUrls[0])
     return jsonify(status='success')
 
 @app.route("/api/artifacts", methods=['GET'])

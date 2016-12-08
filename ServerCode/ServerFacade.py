@@ -8,7 +8,7 @@ class ServerFacade:
 		return User.login(userName, password)
 	def register(self, userName, password, email, fName):
 		return User.register(userName,password,email, fName)
-	def saveFile(self, userName, fileName, filePath, name, date, description, location,privacy,thumbFilePath):
+	def saveFile(self, userName, fileName, filePath, name, date, description, location, privacy, thumbFilePath):
 		return FileManager.saveFile(userName, fileName, filePath,  name, date, description, location,privacy, thumbFilePath)
 	def getData(self, userName):
 		return User.getAllPersonsData(userName)
