@@ -27,7 +27,8 @@ describe('Media Reducer', () => {
               description: '',
               tags: [],
               isPrivate: false,
-              location: ''
+              location: '',
+              originalDate: ''
             }
           }
 
@@ -42,7 +43,8 @@ describe('Media Reducer', () => {
               description: '',
               tags: [],
               isPrivate: false,
-              location: ''
+              location: '',
+              originalDate: ''
             }
           },
           action = {
@@ -58,7 +60,8 @@ describe('Media Reducer', () => {
               description: 'This is a photo',
               tags: [],
               isPrivate: false,
-              location: ''
+              location: '',
+              originalDate: ''
             }
           }
 
