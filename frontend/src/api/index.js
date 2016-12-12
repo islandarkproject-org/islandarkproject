@@ -110,5 +110,3 @@ export function fetchFiles () {
     .set('Content-Type', 'application/json')
     .then((response) => console.log(response))
 }
-
-fetchFiles().then(response => console.log(response))

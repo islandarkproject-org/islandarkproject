@@ -5,6 +5,7 @@ import userIsLoggedIn from './userIsLoggedIn'
 import loginDetails from './loginDetails'
 import registerDetails from './registerDetails'
 import files from './files'
+import { reducer as formReducer } from 'redux-form'
 
 const iapApp = combineReducers({
   media,
@@ -12,7 +13,8 @@ const iapApp = combineReducers({
   userIsLoggedIn,
   loginDetails,
   registerDetails,
-  files
+  files,
+  form: formReducer
 })
 
 export default iapApp
