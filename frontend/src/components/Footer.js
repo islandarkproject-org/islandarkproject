@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react'
-import Logo from './Logo'
-import BodyText from './BodyText'
 import { Link } from 'react-router'
 
 const Footer = ({userIsLoggedIn}) => {

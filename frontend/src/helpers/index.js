@@ -24,7 +24,7 @@ export const getUserLocation = (successCallback, failureCallback) => {
 
 export const validator = (value, type) => {
   // TODO: This is an awful way of handling input errors, do this properly in hindsight
-  switch(type) {
+  switch (type) {
     case 'password':
       if (value.length > 8) {
         return true

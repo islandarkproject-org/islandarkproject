@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { getUserLocation } from '../helpers'
-import BodyText from './BodyText'
 import IAPTextInput from './IAPTextInput'
 import LeafletMap from './LeafletMap'
 
@@ -19,7 +18,7 @@ class LocationEnter extends React.Component {
         location={location}
         onMapClick={(e) => this.props.updateUploadInfo('location', Object.assign({}, e.latlng))}
       />
-        : 
+        :
       <IAPTextInput placeholder='Palau' onChange={(e) => this.props.updateUploadInfo('location', e.target.value)} />
 
     return (

@@ -1,4 +1,4 @@
-import expect from 'expect'
+import { expect, describe, it } from 'expect'
 
 describe('Empty Test', () => {
   it('Should always work', () => {

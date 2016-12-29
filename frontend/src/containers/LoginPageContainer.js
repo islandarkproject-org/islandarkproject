@@ -1,4 +1,4 @@
-import { connect } from 'react-redux' 
+import { connect } from 'react-redux'
 import { logIn, updateLoginDetails } from '../actions'
 import LoginPage from '../components/LoginPage'
 
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  	logIn: (details) => dispatch(logIn(details)),
+    logIn: (details) => dispatch(logIn(details)),
     updateLoginDetails: (field, value) => dispatch(updateLoginDetails(field, value))
   }
 }

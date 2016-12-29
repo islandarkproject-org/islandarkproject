@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react'
 
 const IAPTextArea = ({placeholder, value, onChange}) =>
   <textarea
-  	className='IAPTextArea'
-  	placeholder={placeholder}
-  	defaultValue={value}
-  	onChange={onChange} />
+    className='IAPTextArea'
+    placeholder={placeholder}
+    defaultValue={value}
+    onChange={onChange} />
 
 IAPTextArea.propTypes = {
   onChange: PropTypes.func.isRequired,

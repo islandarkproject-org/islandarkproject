@@ -3,17 +3,17 @@ import OverlayIndicator from './OverlayIndicator'
 
 const ImgPreview = ({src, name, height, moreFiles}) => {
   const preview = src ?
-        <img
-          className='img'
-          src={src}
-          alt={name} />
-          :
-        <h4 className='failure'>Something Went Wrong, Please Try Again</h4>
+    <img
+      className='img'
+      src={src}
+      alt={name} />
+      :
+    <h4 className='failure'>Something Went Wrong, Please Try Again</h4>
 
   const moreFilesIndicator = moreFiles > 0 ?
-        <OverlayIndicator>{`+ ${moreFiles}`}</OverlayIndicator>
-          :
-        null
+    <OverlayIndicator>{`+ ${moreFiles}`}</OverlayIndicator>
+      :
+    null
 
   return (
     <div className='ImgPreview'>

@@ -3,20 +3,20 @@ import Navigation from '../components/Navigation'
 import { logOut } from '../actions'
 
 const mapStateToProps = (state) => {
-	return {
-		userIsLoggedIn: state.userIsLoggedIn
-	}
+  return {
+    userIsLoggedIn: state.userIsLoggedIn
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		logOut: () => dispatch(logOut())
-	}
+  return {
+    logOut: () => dispatch(logOut())
+  }
 }
 
 const NavigationContainer = connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Navigation)
 
 export default NavigationContainer

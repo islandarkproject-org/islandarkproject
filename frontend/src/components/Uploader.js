@@ -30,16 +30,16 @@ class Uploader extends React.Component {
   }
 
   render () {
-    let uploadedMedia = this.props.uploadedMedia,
-        resetStyle = {},
-        info = this.props.uploadedMedia.info,
-        preview
+    let uploadedMedia = this.props.uploadedMedia
+    let resetStyle = {}
+    let info = this.props.uploadedMedia.info
+    let preview
 
     if (uploadedMedia.files) {
       // Show preview of file if it is an image, otherwise show the file name
       // UX point to indicate that it has been uploaded
-      let firstFile = uploadedMedia.files[0],
-          moreFiles = uploadedMedia.files.length - 1
+      let firstFile = uploadedMedia.files[0]
+      let moreFiles = uploadedMedia.files.length - 1
 
       if (/(image)/.test(firstFile.type)) {
         preview = <ImgPreview src={firstFile.preview} name={firstFile.name} moreFiles={moreFiles} />
@@ -50,10 +50,10 @@ class Uploader extends React.Component {
 
     // Once the file(s) have been uploaded, display a form to edit the info for submission
     let uploadForm = info ? <UploadForm
-                              ref={(c) => this._uploadForm = c}
-                              updateUploadInfo={this.props.updateUploadInfo}
-                              {...info}
-                            /> : null
+      ref={(c) => this._uploadForm = c}
+      updateUploadInfo={this.props.updateUploadInfo}
+      {...info}
+    /> : null
 
     let submitButton = info ? <IAPButton onClick={this.upload}>Submit</IAPButton> : null
 

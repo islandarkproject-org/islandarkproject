@@ -14,9 +14,9 @@ function allowPromiseDispatch (store) {
 }
 
 function configureStore () {
-	const store = createStore(iapApp)
-	store.dispatch = allowPromiseDispatch(store)
-	return store
+  const store = createStore(iapApp)
+  store.dispatch = allowPromiseDispatch(store)
+  return store
 }
 
 export default configureStore

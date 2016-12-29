@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-  	upload: (media) => dispatch(upload(media)),
+    upload: (media) => dispatch(upload(media)),
     uploadMedia: (media) => dispatch(uploadMedia(media)),
     updateUploadInfo: (field, value) => dispatch(updateUploadInfo(field, value))
   }

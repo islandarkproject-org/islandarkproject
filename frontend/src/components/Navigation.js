@@ -3,11 +3,9 @@ import { Link } from 'react-router'
 import Logo from './Logo'
 import TitleText from './TitleText'
 import IoUpload from 'react-icons/lib/io/upload'
-import IoEye from 'react-icons/lib/io/eye'
 import IoLogIn from 'react-icons/lib/io/log-in'
 import IoLogOut from 'react-icons/lib/io/log-out'
 import IoImages from 'react-icons/lib/io/images'
-import IoPersonAdd from 'react-icons/lib/io/person-add'
 
 const Navigation = ({userIsLoggedIn, logOut}) => {
   const logInOrOut = userIsLoggedIn ?
@@ -20,7 +18,7 @@ const Navigation = ({userIsLoggedIn, logOut}) => {
         <IoLogIn size={25} /> <TitleText>Log In</TitleText>
       </button>
     </Link>
-    
+
   return (
     <nav className='Navigation'>
       <ul className='logo-root'>

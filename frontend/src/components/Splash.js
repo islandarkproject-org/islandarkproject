@@ -7,7 +7,7 @@ import { Link } from 'react-router'
 const Splash = ({img, color, title, tagline, callToAction}) => {
   const backgroundImgStyle = {
     background: img ? `url(${img}) no-repeat center center fixed` : color,
-    backgroundSize: 'cover',
+    backgroundSize: 'cover'
   }
 
   return (

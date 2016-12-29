@@ -6,7 +6,7 @@ import TeamMember from './TeamMember'
 
 class TeamPage extends React.Component {
   constructor () {
-    super ()
+    super()
     this.teamData = [
       {
         'img': 'https://s3.amazonaws.com/islandarkproject/team-photos/david-eichert-square.jpg',
@@ -57,7 +57,7 @@ class TeamPage extends React.Component {
   }
 
   render () {
-    let team = this.teamData.map((member, i) => 
+    let team = this.teamData.map((member, i) =>
       <TeamMember key={i} name={member.name} imageUrl={member.img} bio={member.bio} />
     )
 
