@@ -53,6 +53,7 @@
     "expect": "1.20.2",
     "mocha": "3.1.0",
     "npm-run-all": "3.1.0",
+    "standard": "8.6.0",
     "webpack": "2.1.0-beta.25",
     "webpack-dev-server": "2.1.0-beta.8"
   }
